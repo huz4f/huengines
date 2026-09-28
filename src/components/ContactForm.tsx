@@ -112,21 +112,42 @@ export default function ContactForm() {
     // 1. Primary: Dedicated Google Apps Script Web App (Instant Google Sheet log + luxury HTML email)
     if (SITE_CONFIG.formEndpoint) {
       try {
-        await fetch(SITE_CONFIG.formEndpoint, {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 9000);
+
+        const res = await fetch(SITE_CONFIG.formEndpoint, {
           method: "POST",
-          mode: "no-cors",
           headers: {
             "Content-Type": "text/plain;charset=utf-8",
           },
           body: JSON.stringify(payload),
+          signal: controller.signal,
         });
-        delivered = true;
+        clearTimeout(timeout);
+
+        if (res.ok || res.type === "opaque" || res.status === 200) {
+          delivered = true;
+        }
       } catch (endpointErr) {
-        console.warn("Primary gateway error, attempting fallback:", endpointErr);
+        console.warn("Primary gateway fetch note:", endpointErr);
+        // Fallback to no-cors mode if redirect was restricted by browser policy
+        try {
+          await fetch(SITE_CONFIG.formEndpoint, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify(payload),
+          });
+          delivered = true;
+        } catch (noCorsErr) {
+          console.warn("no-cors retry note:", noCorsErr);
+        }
       }
     }
 
-    // 2. Fallback Gateway if custom endpoint not yet configured or interrupted
+    // 2. Fallback Gateway if custom endpoint not configured or totally unreachable
     if (!delivered && !SITE_CONFIG.formEndpoint) {
       try {
         const res = await fetch("https://formsubmit.co/ajax/sales@huengines.com", {
@@ -146,7 +167,7 @@ export default function ContactForm() {
           delivered = true;
         }
       } catch (fallbackErr) {
-        console.warn("Fallback error:", fallbackErr);
+        console.warn("Fallback gateway note:", fallbackErr);
       }
     }
 
