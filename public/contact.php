@@ -25,7 +25,7 @@ $name = htmlspecialchars(trim($input['name'] ?? ''));
 $email = filter_var(trim($input['email'] ?? ''), FILTER_VALIDATE_EMAIL);
 $company = htmlspecialchars(trim($input['company'] ?? ''));
 
-// Handle website input flexibly:
+// Flexible website input:
 // Accepts "huz4f.com", "ww.huz4f.com", "www.huz4f.com", "https://huz4f.com", or blank / none.
 $rawWebsite = trim($input['website'] ?? '');
 if (empty($rawWebsite) || in_array(strtolower($rawWebsite), ['n/a', 'none', 'no', 'null', 'nil', '-'])) {
@@ -33,11 +33,9 @@ if (empty($rawWebsite) || in_array(strtolower($rawWebsite), ['n/a', 'none', 'no'
     $displayWebsite = 'Not provided (client has no website or skipped)';
 } else {
     $cleaned = $rawWebsite;
-    // Fix common typos like ww. -> www.
     if (preg_match('/^ww\.(.+)$/i', $cleaned, $matches)) {
         $cleaned = 'www.' . $matches[1];
     }
-    // Add https:// scheme if missing for clean one-click viewing in email
     if (!preg_match('#^https?://#i', $cleaned)) {
         $displayWebsite = $cleaned . ' (https://' . $cleaned . ')';
     } else {
@@ -64,9 +62,7 @@ if (empty($name) || !$email || empty($company)) {
     exit;
 }
 
-// Destination email as requested
-$to = "sales@huengine.com";
-
+$recipients = ["sales@huengines.com", "sales@huengine.com"];
 $subject = "⚡ [High-Value Lead] New Brief from " . $company . " (" . $name . ")";
 
 $body = "====================================================\n";
@@ -101,27 +97,102 @@ $body .= "User Agent:      " . ($_SERVER['HTTP_USER_AGENT'] ?? 'Unknown') . "\n"
 $body .= "Referrer:        " . ($_SERVER['HTTP_REFERER'] ?? 'Direct / Email Link') . "\n";
 $body .= "====================================================\n";
 
-$serverHost = $_SERVER['SERVER_NAME'] ?? 'huengine.com';
-$cleanHost = preg_replace('/^www\./i', '', $serverHost);
-if (empty($cleanHost) || $cleanHost === 'localhost') {
-    $cleanHost = 'huengine.com';
+// Hostinger SMTP authenticated dispatch function
+function sendViaHostingerSmtp($toAddresses, $subject, $bodyText, $replyEmail, $replyName) {
+    $smtpHost = 'smtp.hostinger.com';
+    $smtpPort = 465;
+    $smtpUser = 'sales@huengines.com';
+    $smtpPass = 'williSal3s!';
+    $fromName = 'HU Engines Lead System';
+
+    $context = stream_context_create([
+        'ssl' => [
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true,
+        ]
+    ]);
+
+    $socket = @stream_socket_client("ssl://{$smtpHost}:{$smtpPort}", $errno, $errstr, 12, STREAM_CLIENT_CONNECT, $context);
+    if (!$socket) {
+        return false;
+    }
+
+    $readResponse = function($socket, $expectedCode) {
+        $data = '';
+        while ($str = fgets($socket, 515)) {
+            $data .= $str;
+            if (substr($str, 3, 1) === ' ') break;
+        }
+        return (substr($data, 0, 3) === $expectedCode);
+    };
+
+    $sendCmd = function($socket, $cmd, $expectedCode) use ($readResponse) {
+        fputs($socket, $cmd . "\r\n");
+        return $readResponse($socket, $expectedCode);
+    };
+
+    if (!$readResponse($socket, '220')) { fclose($socket); return false; }
+    if (!$sendCmd($socket, 'EHLO huengines.com', '250')) { fclose($socket); return false; }
+    if (!$sendCmd($socket, 'AUTH LOGIN', '334')) { fclose($socket); return false; }
+    if (!$sendCmd($socket, base64_encode($smtpUser), '334')) { fclose($socket); return false; }
+    if (!$sendCmd($socket, base64_encode($smtpPass), '235')) { fclose($socket); return false; }
+    if (!$sendCmd($socket, "MAIL FROM: <{$smtpUser}>", '250')) { fclose($socket); return false; }
+
+    $atLeastOneAccepted = false;
+    foreach ($toAddresses as $to) {
+        $to = trim($to);
+        if (!empty($to)) {
+            if ($sendCmd($socket, "RCPT TO: <{$to}>", '250')) {
+                $atLeastOneAccepted = true;
+            }
+        }
+    }
+
+    if (!$atLeastOneAccepted) {
+        fclose($socket);
+        return false;
+    }
+
+    if (!$sendCmd($socket, 'DATA', '354')) { fclose($socket); return false; }
+
+    $headers  = "From: =?UTF-8?B?" . base64_encode($fromName) . "?= <{$smtpUser}>\r\n";
+    $headers .= "To: " . implode(', ', $toAddresses) . "\r\n";
+    if (!empty($replyEmail)) {
+        $headers .= "Reply-To: =?UTF-8?B?" . base64_encode($replyName) . "?= <{$replyEmail}>\r\n";
+    }
+    $headers .= "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=\r\n";
+    $headers .= "Date: " . date('r') . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $headers .= "Content-Transfer-Encoding: 8bit\r\n";
+    $headers .= "X-Mailer: HU-Engines-SMTP/2.0\r\n";
+
+    fputs($socket, $headers . "\r\n" . $bodyText . "\r\n.\r\n");
+    if (!$readResponse($socket, '250')) { fclose($socket); return false; }
+
+    $sendCmd($socket, 'QUIT', '221');
+    fclose($socket);
+    return true;
 }
-$fromAddress = "noreply@" . $cleanHost;
 
-$headers = "From: HU Engines Website <" . $fromAddress . ">\r\n";
-$headers .= "Reply-To: " . $name . " <" . $email . ">\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+// 1. Try Authenticated Hostinger SMTP first
+$sent = sendViaHostingerSmtp($recipients, $subject, $body, $email, $name);
 
-// Send email with envelope-sender (-f) parameter for reliable deliverability on Hostinger/cPanel
-$sent = @mail($to, $subject, $body, $headers, "-f " . $fromAddress);
+// 2. Fallback to standard server mail() if SMTP socket was blocked
 if (!$sent) {
-    // Fallback without 5th parameter if host mail config prevents -f
-    $sent = @mail($to, $subject, $body, $headers);
+    $mailHeaders = "From: HU Engines Website <noreply@huengines.com>\r\n";
+    $mailHeaders .= "Reply-To: " . $name . " <" . $email . ">\r\n";
+    $mailHeaders .= "MIME-Version: 1.0\r\n";
+    $mailHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $mailHeaders .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+
+    foreach ($recipients as $recipient) {
+        @mail($recipient, $subject, $body, $mailHeaders, "-f noreply@huengines.com");
+    }
 }
 
-// Backup lead storage (ensures no ₹50L+ lead is EVER lost if mail transport has temporary downtime)
+// 3. Backup lead record on disk (guarantees zero lead loss under any network circumstance)
 $backupRecord = [
     'timestamp'       => date('Y-m-d H:i:s T'),
     'name'            => $name,
