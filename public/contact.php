@@ -97,13 +97,34 @@ $body .= "User Agent:      " . ($_SERVER['HTTP_USER_AGENT'] ?? 'Unknown') . "\n"
 $body .= "Referrer:        " . ($_SERVER['HTTP_REFERER'] ?? 'Direct / Email Link') . "\n";
 $body .= "====================================================\n";
 
-// Hostinger SMTP authenticated dispatch function
+// Hostinger SMTP authenticated dispatch function (reads from external config or env)
 function sendViaHostingerSmtp($toAddresses, $subject, $bodyText, $replyEmail, $replyName) {
     $smtpHost = 'smtp.hostinger.com';
     $smtpPort = 465;
     $smtpUser = 'sales@huengines.com';
-    $smtpPass = 'williSal3s!';
+    $smtpPass = '';
     $fromName = 'HU Engines Lead System';
+
+    $configFile = __DIR__ . '/config.local.php';
+    if (file_exists($configFile)) {
+        $cfg = @include($configFile);
+        if (is_array($cfg)) {
+            $smtpHost = $cfg['smtp_host'] ?? $smtpHost;
+            $smtpPort = (int)($cfg['smtp_port'] ?? $smtpPort);
+            $smtpUser = $cfg['smtp_user'] ?? $smtpUser;
+            $smtpPass = $cfg['smtp_pass'] ?? '';
+            $fromName = $cfg['from_name'] ?? $fromName;
+        }
+    }
+
+    if (empty($smtpPass)) {
+        $smtpPass = getenv('SMTP_PASS') ?: (getenv('HOSTINGER_SMTP_PASS') ?: '');
+    }
+
+    // If no credentials found, return false to trigger server mail fallback
+    if (empty($smtpPass)) {
+        return false;
+    }
 
     $context = stream_context_create([
         'ssl' => [
@@ -179,7 +200,7 @@ function sendViaHostingerSmtp($toAddresses, $subject, $bodyText, $replyEmail, $r
 // 1. Try Authenticated Hostinger SMTP first
 $sent = sendViaHostingerSmtp($recipients, $subject, $body, $email, $name);
 
-// 2. Fallback to standard server mail() if SMTP socket was blocked
+// 2. Fallback to standard server mail() if SMTP socket was blocked or credentials not provided
 if (!$sent) {
     $mailHeaders = "From: HU Engines Website <noreply@huengines.com>\r\n";
     $mailHeaders .= "Reply-To: " . $name . " <" . $email . ">\r\n";

@@ -34,8 +34,8 @@
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# Security: Deny direct access to backup lead files and logs
-<FilesMatch "\.(jsonl|log|env|ini|sh)$">
+# Security: Deny direct access to private configs, backup lead files and logs
+<FilesMatch "(config\.local\.php|\.jsonl|\.log|\.env|\.ini|\.sh)$">
   Order Allow,Deny
   Deny from all
 </FilesMatch>

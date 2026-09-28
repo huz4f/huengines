@@ -25,6 +25,8 @@
 *.pem
 *.zip
 logo.png
+config.local.php
+__leads_secure_backup.jsonl
 
 # debug
 npm-debug.log*
