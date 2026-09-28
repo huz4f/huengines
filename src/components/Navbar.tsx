@@ -5,10 +5,10 @@ import Link from "next/link";
 import HuLogo from "./HuLogo";
 
 const navLinks = [
-  { label: "LeadEngine", href: "#leadengine" },
-  { label: "Outcomes", href: "#outcomes" },
-  { label: "Deployments", href: "#case-studies" },
-  { label: "Partnership", href: "#who-we-work-with" },
+  { label: "LeadEngine", href: "/#leadengine" },
+  { label: "Outcomes", href: "/#outcomes" },
+  { label: "Deployments", href: "/#case-studies" },
+  { label: "Partnership", href: "/#who-we-work-with" },
 ];
 
 export default function Navbar() {
@@ -130,7 +130,7 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="#contact"
+          href="/#contact"
           onClick={() => setMobileOpen(false)}
           className="mt-8 px-8 py-3 border border-hu-accent text-hu-accent text-sm tracking-[0.15em] uppercase hover:bg-hu-accent hover:text-hu-black transition-all duration-300"
           style={{

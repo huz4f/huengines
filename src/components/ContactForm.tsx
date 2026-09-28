@@ -92,83 +92,50 @@ export default function ContactForm() {
       email: cleanEmail,
       company: cleanCompany,
       website: cleanWebsite || "Not provided",
-      revenue: formData.revenue || "Not specified",
-      scope: formData.scope.trim() || "Not specified",
-      successCriteria: formData.successCriteria.trim() || "Not specified",
-      improvements: selectedImprovements.join(", "),
-      _subject: `⚡ [High-Value Lead] New Brief from ${cleanCompany} (${cleanName})`,
+      system_scale: formData.revenue || "Not specified",
+      core_systems_focus: selectedImprovements.join(", "),
+      scope_of_work: formData.scope.trim() || "Not specified",
+      success_criteria: formData.successCriteria.trim() || "Not specified",
+      _subject: `⚡ [HU Engines] Client Brief: ${cleanCompany} (${cleanName})`,
+      _replyto: cleanEmail,
+      _cc: "ihuz4f@gmail.com",
+      _captcha: "false",
+      _template: "table",
     };
 
     let delivered = false;
 
-    // 1. Primary: Web3Forms direct delivery using active access key
     try {
-      const w3Res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "98ce95d7223216ff443c1e85049f33e2d24bcd3218eca8da1f9843cf1e8db7d0",
-          subject: `⚡ [High-Value Lead] New Brief from ${formData.company.trim()} (${formData.name.trim()})`,
-          from_name: "HU Engine Lead System",
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          company: formData.company.trim(),
-          website: cleanWebsite || "Not provided",
-          revenue: formData.revenue || "Not specified",
-          improvements: selectedImprovements.join(", "),
-          scope: formData.scope.trim() || "Not specified",
-          successCriteria: formData.successCriteria.trim() || "Not specified",
-        }),
-      });
-      if (w3Res.ok) {
-        delivered = true;
-      }
-    } catch {
-      // Continue to fallbacks
-    }
-
-    // 2. Try PHP endpoint if server supports PHP
-    if (!delivered) {
-      try {
-        const phpRes = await fetch("/contact.php", {
+      const res = await fetch(
+        "https://formsubmit.co/ajax/sales@huengines.com",
+        {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
           body: JSON.stringify(payload),
-        });
-        if (phpRes.ok) {
-          delivered = true;
         }
-      } catch {
-        // Not on PHP host
+      );
+
+      const data = await res.json().catch(() => null);
+      if (res.ok && data && (data.success === "true" || data.success === true)) {
+        delivered = true;
+      } else if (data && data.message) {
+        console.warn("FormSubmit status:", data.message);
       }
+    } catch (err) {
+      console.error("Submission network error:", err);
     }
 
-    // 3. Static host fallback
-    if (!delivered) {
-      try {
-        const staticRes = await fetch(
-          "https://formsubmit.co/ajax/sales@huengine.com",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(payload),
-          }
-        );
-        if (staticRes.ok) {
-          delivered = true;
-        }
-      } catch {
-        // Handled
-      }
+    if (delivered) {
+      setSubmitted(true);
+      setErrorMsg("");
+    } else {
+      setErrorMsg(
+        "Transmission was interrupted by browser privacy settings or network restrictions. Click below to send your brief directly to our partners via email."
+      );
     }
-
-    setSubmitted(true);
     setSubmitting(false);
   };
 
@@ -491,12 +458,6 @@ export default function ContactForm() {
                         );
                       })}
                     </div>
-
-                    {errorMsg && (
-                      <p className="text-red-400 text-xs mt-2 animate-shake">
-                        {errorMsg}
-                      </p>
-                    )}
                   </div>
 
                   {/* Project Scope / Engagement Scale */}
@@ -572,6 +533,27 @@ export default function ContactForm() {
                     />
                   </div>
 
+                  {/* Error Notification & Email Fallback */}
+                  {errorMsg && (
+                    <div className="p-4 border border-red-500/40 bg-red-950/20 text-left animate-shake">
+                      <p className="text-red-400 text-xs leading-relaxed mb-2 font-medium">
+                        {errorMsg}
+                      </p>
+                      {errorMsg.includes("email directly") && (
+                        <a
+                          href={`mailto:sales@huengines.com?cc=ihuz4f@gmail.com&subject=${encodeURIComponent(
+                            `⚡ [HU Engines] Client Brief: ${formData.company || "Project Inquiry"} (${formData.name || "Executive"})`
+                          )}&body=${encodeURIComponent(
+                            `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nWebsite: ${formData.website || "N/A"}\nFocus: ${selectedImprovements.join(", ")}\nScope: ${formData.scope || "N/A"}\nSuccess Criteria: ${formData.successCriteria || "N/A"}`
+                          )}`}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-red-900/40 border border-red-500/50 text-red-200 text-xs font-mono uppercase tracking-wider hover:bg-red-800/60 transition-colors"
+                        >
+                          ✉ Send Brief via Email Client →
+                        </a>
+                      )}
+                    </div>
+                  )}
+
                   {/* Submit Button */}
                   <button
                     type="submit"
@@ -598,7 +580,7 @@ export default function ContactForm() {
                   </button>
 
                   <div className="flex items-center justify-between text-[11px] text-hu-text-muted tracking-wide pt-1">
-                    <span>Delivered to sales@huengine.com</span>
+                    <span>Delivered to sales@huengines.com</span>
                     <span>Response within 24–48h</span>
                   </div>
                 </div>
