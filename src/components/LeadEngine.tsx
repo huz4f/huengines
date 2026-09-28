@@ -7,7 +7,7 @@ const phases = [
     step: "01",
     title: "Market & Account Intelligence",
     description:
-      "Algorithmic discovery mapping high-value B2B organizations with ₹50L+ deal size and verified executive decision-makers (CEOs, VPs, Managing Directors).",
+      "Algorithmic discovery mapping high-value enterprise accounts and verified executive decision-makers (CEOs, VPs, Managing Directors).",
     highlight: "Zero generic scraped lists",
   },
   {
@@ -34,7 +34,7 @@ const phases = [
 ];
 
 const metrics = [
-  { value: "₹50L+", label: "Target Deal Size" },
+  { value: "Tier-1", label: "Executive Account Focus" },
   { value: "3.8x", label: "Higher Meeting Conversion" },
   { value: "85%", label: "Lower Acquisition Overhead" },
   { value: "100%", label: "Calendar Direct Delivery" },
@@ -92,9 +92,9 @@ export default function LeadEngine() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            Traditional sales teams burn money on manual SDRs, generic spam templates, 
+            Traditional sales teams burn resources on manual outbound, generic spam templates, 
             and fragmented tools. LeadEngine replaces that friction with an autonomous, 
-            audit-first acquisition engine designed to secure ₹50L+ enterprise deals.
+            audit-first acquisition engine designed to secure major enterprise engagements.
           </p>
         </div>
 
@@ -146,12 +146,12 @@ export default function LeadEngine() {
                 The Strategic Difference
               </span>
               <h3 className="text-hu-white text-2xl md:text-3xl font-medium tracking-tight mb-4">
-                Why Manual SDRs Fail at ₹50L+ Contracts
+                Why Manual Outbound Fails at Serious Enterprise Contracts
               </h3>
               <p className="text-hu-text-secondary text-sm leading-relaxed mb-6">
                 Enterprise decision-makers discard generic cold templates within two seconds. 
-                Securing 50+ lakh commitments requires technical rigor, personalized account auditing, 
-                and verified delivery infrastructure that doesn&apos;t burn your domain reputation.
+                Securing high-value commitments requires technical rigor, personalized account auditing, 
+                and verified delivery infrastructure that protects your brand authority.
               </p>
 
               <div className="space-y-3">
@@ -164,7 +164,7 @@ export default function LeadEngine() {
                 <div className="flex items-start gap-3">
                   <span className="text-hu-accent font-mono text-xs mt-0.5">✓</span>
                   <span className="text-hu-text-secondary text-xs leading-relaxed">
-                    <strong>LeadEngine Infrastructure:</strong> Deep account reconnaissance, bespoke audit briefs, warm domain clusters, and high-ticket pipeline delivered on autopilot.
+                    <strong>LeadEngine Infrastructure:</strong> Deep account reconnaissance, bespoke audit briefs, warm domain clusters, and verified enterprise pipeline delivered on autopilot.
                   </span>
                 </div>
               </div>

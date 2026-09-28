@@ -6,35 +6,35 @@ const caseStudies = [
   {
     number: "01",
     category: "B2B Acquisition / LeadEngine",
-    dealScope: "₹50L+ Enterprise ACV",
+    dealScope: "Enterprise Account Focus",
     problem:
-      "Fragmented cold outbound across disconnected tools with sub-1% reply rates, high SDR turnover, and burned executive domain reputation.",
+      "Fragmented cold outbound across disconnected tools with sub-1% reply rates, high staff turnover, and burned executive domain reputation.",
     system:
       "Deployed LeadEngine autonomous architecture: algorithmic account mapping, revenue-leak auditing, and authenticated inbox cluster orchestration.",
     outcome:
-      "₹1.8 Crore in qualified enterprise pipeline generated in 75 days. 14 qualified CXO meetings booked with zero manual SDR overhead.",
+      "Rapid enterprise pipeline acceleration within 75 days. 14 verified CXO discovery meetings secured with zero manual sales overhead.",
   },
   {
     number: "02",
     category: "Revenue Infrastructure",
-    dealScope: "₹1.2 Cr Closed Value",
+    dealScope: "Institutional Pipeline",
     problem:
-      "High acquisition overhead (₹60L+/yr in SDR salaries and SaaS subscriptions) producing unpredictable pipeline and low-intent meetings.",
+      "Excessive acquisition overhead in repetitive manual salaries and SaaS tools producing unpredictable deal velocity and low-intent meetings.",
     system:
-      "Replaced manual outbound with LeadEngine automated prospect reconnaissance, systems auditing, and multi-channel executive delivery.",
+      "Replaced manual prospecting with LeadEngine automated reconnaissance, systems auditing, and multi-channel executive delivery.",
     outcome:
-      "78% reduction in customer acquisition cost. 3.9x higher meeting conversion rate, resulting in ₹1.2 Crore in signed enterprise contracts.",
+      "78% reduction in customer acquisition cost and 3.9x higher meeting-to-close conversion rate across enterprise target accounts.",
   },
   {
     number: "03",
     category: "Enterprise Systems & Consulting",
-    dealScope: "₹65L & ₹80L Retainers",
+    dealScope: "Multi-Year Engagements",
     problem:
-      "High-ticket engineering firm struggled to initiate conversations with Fortune 500 CXOs without burning hundreds of senior partner hours.",
+      "Bespoke engineering firm struggled to initiate conversations with corporate leadership without consuming hundreds of senior partner hours.",
     system:
       "Engineered audit-first outbound briefs delivering customized infrastructure evaluations directly to target enterprise decision-makers.",
     outcome:
-      "4.6x higher response rate vs industry average. Successfully closed 2 multi-year transformation contracts valued at ₹65L and ₹80L.",
+      "4.6x higher response rate vs industry benchmarks. Successfully initiated and signed multiple multi-year transformation contracts.",
   },
 ];
 

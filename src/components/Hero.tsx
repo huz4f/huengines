@@ -83,7 +83,7 @@ export default function Hero() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We design and deploy <strong className="text-hu-white font-medium">LeadEngine</strong>—an intelligent acquisition system that identifies, audits, and converts high-value enterprise accounts into predictable ₹50L+ contract pipelines.
+              We design and deploy <strong className="text-hu-white font-medium">LeadEngine</strong>—an intelligent acquisition architecture that identifies, audits, and converts high-value enterprise accounts into predictable, high-yield client pipelines.
             </p>
 
             {/* CTAs */}
@@ -129,7 +129,7 @@ export default function Hero() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              {["₹50L+ Deal Focus", "Autonomous Acquisition", "Verified Pipeline", "Enterprise Security"].map((item, i, arr) => (
+              {["High-Value Enterprise Focus", "Autonomous Acquisition", "Verified Pipeline", "Institutional Reliability"].map((item, i, arr) => (
                 <span key={item} className="flex items-center gap-3">
                   <span className="text-hu-text-secondary font-medium">{item}</span>
                   {i < arr.length - 1 && (

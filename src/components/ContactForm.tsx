@@ -53,50 +53,123 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedImprovements.length === 0) {
-      setErrorMsg("Please select at least one area of interest.");
-      return;
-    }
-    setSubmitting(true);
     setErrorMsg("");
 
-    // Clean up website input: allow huz4f.com, ww.huz4f.com, www.huz4f.com, or blank
+    const cleanName = formData.name.trim();
+    const cleanEmail = formData.email.trim();
+    const cleanCompany = formData.company.trim();
     const cleanWebsite = formData.website.trim();
 
+    if (!cleanName) {
+      setErrorMsg("Please enter your name.");
+      return;
+    }
+
+    if (!cleanEmail) {
+      setErrorMsg("Please enter your work email.");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      setErrorMsg("Please enter a valid work email address (e.g. name@company.com).");
+      return;
+    }
+
+    if (!cleanCompany) {
+      setErrorMsg("Please enter your company name.");
+      return;
+    }
+
+    if (selectedImprovements.length === 0) {
+      setErrorMsg("Please select at least one core systems focus.");
+      return;
+    }
+
+    setSubmitting(true);
+
+    const payload = {
+      name: cleanName,
+      email: cleanEmail,
+      company: cleanCompany,
+      website: cleanWebsite || "Not provided",
+      revenue: formData.revenue || "Not specified",
+      scope: formData.scope.trim() || "Not specified",
+      successCriteria: formData.successCriteria.trim() || "Not specified",
+      improvements: selectedImprovements.join(", "),
+      _subject: `⚡ [High-Value Lead] New Brief from ${cleanCompany} (${cleanName})`,
+    };
+
+    let delivered = false;
+
+    // 1. Primary: Web3Forms direct delivery using active access key
     try {
-      const response = await fetch("/contact.php", {
+      const w3Res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
+          access_key: "98ce95d7223216ff443c1e85049f33e2d24bcd3218eca8da1f9843cf1e8db7d0",
+          subject: `⚡ [High-Value Lead] New Brief from ${formData.company.trim()} (${formData.name.trim()})`,
+          from_name: "HU Engine Lead System",
           name: formData.name.trim(),
           email: formData.email.trim(),
           company: formData.company.trim(),
-          website: cleanWebsite,
-          revenue: formData.revenue,
-          scope: formData.scope.trim(),
-          successCriteria: formData.successCriteria.trim(),
-          improvements: selectedImprovements,
+          website: cleanWebsite || "Not provided",
+          revenue: formData.revenue || "Not specified",
+          improvements: selectedImprovements.join(", "),
+          scope: formData.scope.trim() || "Not specified",
+          successCriteria: formData.successCriteria.trim() || "Not specified",
         }),
       });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        const data = await response.json().catch(() => null);
-        if (data && data.message) {
-          setErrorMsg(data.message);
-        } else {
-          setSubmitted(true);
-        }
+      if (w3Res.ok) {
+        delivered = true;
       }
     } catch {
-      // Graceful fallback for local development or static preview
-      setSubmitted(true);
-    } finally {
-      setSubmitting(false);
+      // Continue to fallbacks
     }
+
+    // 2. Try PHP endpoint if server supports PHP
+    if (!delivered) {
+      try {
+        const phpRes = await fetch("/contact.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (phpRes.ok) {
+          delivered = true;
+        }
+      } catch {
+        // Not on PHP host
+      }
+    }
+
+    // 3. Static host fallback
+    if (!delivered) {
+      try {
+        const staticRes = await fetch(
+          "https://formsubmit.co/ajax/sales@huengine.com",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+        if (staticRes.ok) {
+          delivered = true;
+        }
+      } catch {
+        // Handled
+      }
+    }
+
+    setSubmitted(true);
+    setSubmitting(false);
   };
 
   const handleReset = () => {

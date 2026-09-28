@@ -6,7 +6,7 @@ const outcomes = [
   {
     title: "PREDICTABLE PIPELINE",
     description:
-      "Transform haphazard outreach into an autonomous engine delivering consistent ₹50L+ executive conversations every week.",
+      "Transform haphazard outreach into an autonomous engine delivering consistent, qualified executive conversations every week.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M4 22l6-8 5 4 9-14" />
@@ -17,7 +17,7 @@ const outcomes = [
   {
     title: "ZERO SDR OVERHEAD",
     description:
-      "Eliminate the costly cycle of recruiting, ramping, and churning manual sales reps costing ₹20L–₹50L+ annually.",
+      "Eliminate the costly cycle of recruiting, ramping, and churning manual sales reps with low, unpredictable returns.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="12" cy="12" r="10" />

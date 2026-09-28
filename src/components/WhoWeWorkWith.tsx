@@ -10,7 +10,7 @@ const sectors = [
   "Cybersecurity & Cloud Systems",
   "Logistics & Global Supply Chain",
   "Healthcare & Life Sciences Tech",
-  "High-Growth Founders (₹5Cr - ₹100Cr+)",
+  "Established Mid-Market & Enterprise Operators",
 ];
 
 export default function WhoWeWorkWith() {
@@ -62,9 +62,9 @@ export default function WhoWeWorkWith() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We work with founders and enterprise operators whose contracts are 
-              valued at ₹50 Lakhs to multi-crores, where an intelligent acquisition 
-              system materially alters the financial trajectory of the business.
+              We partner with founders and enterprise leaders where high-trust relationships,
+              rigorous technical architecture, and predictable acquisition systems materially
+              accelerate enterprise growth.
             </p>
 
             <p
