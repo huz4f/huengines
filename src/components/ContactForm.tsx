@@ -415,7 +415,7 @@ export default function ContactForm() {
                       <label className="block text-hu-text-muted text-[11px] tracking-[0.15em] uppercase mb-2">
                         Website{" "}
                         <span className="text-hu-text-muted/60 lowercase tracking-normal text-[10px]">
-                          (optional — e.g. huz4f.com)
+                          (optional — e.g. company.com)
                         </span>
                       </label>
                       <input
@@ -423,7 +423,7 @@ export default function ContactForm() {
                         name="website"
                         value={formData.website}
                         onChange={handleInputChange}
-                        placeholder="huz4f.com or leave blank"
+                        placeholder="company.com or leave blank"
                         autoCapitalize="none"
                         autoCorrect="off"
                         spellCheck={false}
