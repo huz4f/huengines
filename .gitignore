@@ -27,6 +27,7 @@
 logo.png
 config.local.php
 __leads_secure_backup.jsonl
+archive/
 
 # debug
 npm-debug.log*

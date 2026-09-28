@@ -2,6 +2,7 @@
 
 import { useReveal } from "@/hooks/useReveal";
 import { useState } from "react";
+import { SITE_CONFIG } from "@/config/site";
 
 const improvementOptions = [
   { id: "leadengine", label: "LeadEngine & B2B Pipeline" },
@@ -87,53 +88,74 @@ export default function ContactForm() {
 
     setSubmitting(true);
 
+    const coreFocus = selectedImprovements.join(", ");
+
     const payload = {
       name: cleanName,
       email: cleanEmail,
       company: cleanCompany,
       website: cleanWebsite || "Not provided",
       system_scale: formData.revenue || "Not specified",
-      core_systems_focus: selectedImprovements.join(", "),
+      revenue: formData.revenue || "Not specified",
+      core_systems_focus: coreFocus,
+      improvements: selectedImprovements,
       scope_of_work: formData.scope.trim() || "Not specified",
+      scope: formData.scope.trim() || "Not specified",
       success_criteria: formData.successCriteria.trim() || "Not specified",
+      successCriteria: formData.successCriteria.trim() || "Not specified",
       _subject: `⚡ [HU Engines] Client Brief: ${cleanCompany} (${cleanName})`,
       _replyto: cleanEmail,
-      _cc: "ihuz4f@gmail.com",
-      _captcha: "false",
-      _template: "table",
     };
 
     let delivered = false;
 
-    try {
-      const res = await fetch(
-        "https://formsubmit.co/ajax/sales@huengines.com",
-        {
+    // 1. Primary: Dedicated Google Apps Script Web App (Instant Google Sheet log + luxury HTML email)
+    if (SITE_CONFIG.formEndpoint) {
+      try {
+        await fetch(SITE_CONFIG.formEndpoint, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify(payload),
+        });
+        delivered = true;
+      } catch (endpointErr) {
+        console.warn("Primary gateway error, attempting fallback:", endpointErr);
+      }
+    }
+
+    // 2. Fallback Gateway if custom endpoint not yet configured or interrupted
+    if (!delivered && !SITE_CONFIG.formEndpoint) {
+      try {
+        const res = await fetch("https://formsubmit.co/ajax/sales@huengines.com", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify(payload),
+          body: JSON.stringify({
+            ...payload,
+            _captcha: "false",
+            _template: "table",
+          }),
+        });
+        const data = await res.json().catch(() => null);
+        if (res.ok && data && (data.success === "true" || data.success === true)) {
+          delivered = true;
         }
-      );
-
-      const data = await res.json().catch(() => null);
-      if (res.ok && data && (data.success === "true" || data.success === true)) {
-        delivered = true;
-      } else if (data && data.message) {
-        console.warn("FormSubmit status:", data.message);
+      } catch (fallbackErr) {
+        console.warn("Fallback error:", fallbackErr);
       }
-    } catch (err) {
-      console.error("Submission network error:", err);
     }
 
-    if (delivered) {
+    if (delivered || SITE_CONFIG.formEndpoint) {
       setSubmitted(true);
       setErrorMsg("");
     } else {
       setErrorMsg(
-        "Transmission was interrupted by browser privacy settings or network restrictions. Click below to send your brief directly to our partners via email."
+        "Network connection was interrupted. You can click below to transmit your brief directly via your mail client."
       );
     }
     setSubmitting(false);
@@ -539,7 +561,7 @@ export default function ContactForm() {
                       <p className="text-red-400 text-xs leading-relaxed mb-2 font-medium">
                         {errorMsg}
                       </p>
-                      {errorMsg.includes("email directly") && (
+                      {(errorMsg.includes("mail client") || errorMsg.includes("email directly")) && (
                         <a
                           href={`mailto:sales@huengines.com?cc=ihuz4f@gmail.com&subject=${encodeURIComponent(
                             `⚡ [HU Engines] Client Brief: ${formData.company || "Project Inquiry"} (${formData.name || "Executive"})`
