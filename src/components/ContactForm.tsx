@@ -233,9 +233,9 @@ export default function ContactForm() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We partner with organizations where high-ticket deals (₹50 Lakh+) 
-              and predictable acquisition compound enterprise value. Submit your 
-              brief and we&apos;ll respond with a systems perspective—not a generic pitch.
+              We partner with organizations where mission-critical systems, institutional
+              trust, and predictable acquisition compound enterprise value. Submit your brief
+              and our principal engineering team will respond with a systems perspective—not a generic sales pitch.
             </p>
 
             <div
@@ -247,7 +247,7 @@ export default function ContactForm() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-hu-accent flex-shrink-0" />
-                <span>Engineered for ₹50L+ to multi-crore deal pipelines</span>
+                <span>Bespoke systems tailored for serious enterprise &amp; high-growth operators</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-hu-accent flex-shrink-0" />
@@ -271,10 +271,10 @@ export default function ContactForm() {
                 Direct Executive Channel
               </span>
               <a
-                href="mailto:sales@huengine.com"
+                href="mailto:sales@huengines.com"
                 className="text-hu-white hover:text-hu-accent text-sm tracking-wide font-mono transition-colors duration-300 inline-flex items-center gap-2"
               >
-                sales@huengine.com
+                sales@huengines.com
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path
                     d="M3 1h8v8M11 1L1 11"
@@ -349,6 +349,7 @@ export default function ContactForm() {
             ) : (
               <form
                 onSubmit={handleSubmit}
+                noValidate
                 className="border border-hu-border bg-hu-card/25 p-8 md:p-10 shadow-2xl relative backdrop-blur-sm"
               >
                 <div className="space-y-6">
@@ -361,7 +362,7 @@ export default function ContactForm() {
                       <input
                         type="text"
                         name="name"
-                        required
+                        autoComplete="name"
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Alex Morgan"
@@ -373,11 +374,21 @@ export default function ContactForm() {
                         Work Email <span className="text-hu-accent">*</span>
                       </label>
                       <input
-                        type="email"
+                        type="text"
+                        inputMode="email"
                         name="email"
-                        required
+                        autoComplete="email"
+                        autoCapitalize="none"
+                        autoCorrect="off"
+                        spellCheck={false}
                         value={formData.email}
                         onChange={handleInputChange}
+                        onBlur={(e) =>
+                          setFormData((prev) => ({
+                            ...prev,
+                            email: e.target.value.trim(),
+                          }))
+                        }
                         placeholder="alex@enterprise.com"
                         className="w-full bg-hu-black/60 border border-hu-border text-hu-text text-sm px-4 py-3 placeholder:text-hu-text-muted/40 focus:outline-none focus:border-hu-accent transition-colors duration-300"
                       />
@@ -488,10 +499,10 @@ export default function ContactForm() {
                     )}
                   </div>
 
-                  {/* Annual Revenue / Deal Scale */}
+                  {/* Project Scope / Engagement Scale */}
                   <div>
                     <label className="block text-hu-text-muted text-[11px] tracking-[0.15em] uppercase mb-2">
-                      Approximate Annual Scale / Revenue
+                      Engagement Scope &amp; System Scale
                     </label>
                     <div className="relative">
                       <select
@@ -501,22 +512,19 @@ export default function ContactForm() {
                         className="w-full bg-hu-black/60 border border-hu-border text-hu-text text-sm px-4 py-3 appearance-none transition-colors duration-300 cursor-pointer focus:outline-none focus:border-hu-accent pr-10"
                       >
                         <option value="" className="bg-hu-darker text-hu-text-muted">
-                          Select scale range
+                          Select engagement tier
                         </option>
-                        <option value="50L-1Cr" className="bg-hu-darker text-hu-text">
-                          ₹50 Lakh – ₹1 Crore / $60K–$120K USD
+                        <option value="core-architecture" className="bg-hu-darker text-hu-text">
+                          Focused Architecture (Core Acquisition / LeadEngine Deployment)
                         </option>
-                        <option value="1-5cr" className="bg-hu-darker text-hu-text">
-                          ₹1 – 5 Crore / $120K–$600K USD
+                        <option value="multi-department" className="bg-hu-darker text-hu-text">
+                          Multi-Department System (Pipeline Infrastructure &amp; Automation)
                         </option>
-                        <option value="5-25cr" className="bg-hu-darker text-hu-text">
-                          ₹5 – 25 Crore / $600K–$3M USD
+                        <option value="enterprise-transformation" className="bg-hu-darker text-hu-text">
+                          Full Enterprise Operating Architecture
                         </option>
-                        <option value="25-100cr" className="bg-hu-darker text-hu-text">
-                          ₹25 – 100 Crore / $3M–$12M USD
-                        </option>
-                        <option value="100cr+" className="bg-hu-darker text-hu-text">
-                          ₹100 Crore+ Enterprise / $12M+ USD
+                        <option value="strategic-advisory" className="bg-hu-darker text-hu-text">
+                          Strategic Advisory &amp; Ongoing Systems Engineering
                         </option>
                       </select>
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-hu-text-muted">
@@ -559,7 +567,7 @@ export default function ContactForm() {
                       rows={2}
                       value={formData.successCriteria}
                       onChange={handleInputChange}
-                      placeholder="e.g. ₹50L+ qualified pipeline monthly, automated qualification, or predictable CXO meetings"
+                      placeholder="e.g. Predictable pipeline velocity, automated qualification, or verified CXO meetings"
                       className="w-full bg-hu-black/60 border border-hu-border text-hu-text text-sm px-4 py-3 placeholder:text-hu-text-muted/40 resize-none focus:outline-none focus:border-hu-accent transition-colors duration-300"
                     />
                   </div>
