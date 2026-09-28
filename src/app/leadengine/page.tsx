@@ -4,8 +4,8 @@ import LeadEngine from "@/components/LeadEngine";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LeadEngine | HU Engines",
-  description: "LeadEngine — Autonomous Revenue Infrastructure. Transform B2B acquisition with intelligent pipeline automation.",
+  title: "Architecture & Systems Engineering | HU Engines",
+  description: "Bespoke software, decentralized crypto systems, and autonomous AI infrastructure engineered for high-demand business operators.",
 };
 
 export default function LeadEnginePage() {

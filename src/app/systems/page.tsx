@@ -5,33 +5,33 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Systems | HU Engines",
-  description: "Explore intelligent infrastructure systems built by HU Engines — revenue, AI, cybersecurity, and enterprise software.",
+  description: "Explore bespoke software, decentralized crypto systems, autonomous AI engines, and revenue infrastructure built by HU Engines.",
 };
 
 const systems = [
   {
     number: "01",
-    title: "REVENUE INFRASTRUCTURE",
-    href: "/systems/revenue",
-    description: "Autonomous systems for opportunity identification, prospect research, outreach personalization, and sales acceleration.",
+    title: "CRYPTO & DECENTRALIZED RAILS",
+    href: "/#systems",
+    description: "Institutional smart contracts, multi-chain settlement rails, non-custodial treasury vaults, and automated execution engines.",
   },
   {
     number: "02",
-    title: "AI OPERATING SYSTEMS",
-    href: "/systems/ai",
-    description: "Intelligent agents and automated workflows deployed across enterprise operations.",
+    title: "BESPOKE ENTERPRISE SOFTWARE",
+    href: "/#systems",
+    description: "Purpose-built operational operating systems, high-concurrency cloud APIs, and specialized portals eliminating SaaS lock-in.",
   },
   {
     number: "03",
-    title: "CYBERSECURITY SYSTEMS",
-    href: "/systems/security",
-    description: "Security infrastructure designed for companies operating at scale.",
+    title: "AUTONOMOUS AI OPERATING SYSTEMS",
+    href: "/#systems",
+    description: "Deterministic autonomous agents, real-time client triage, and intelligent workflow orchestration operating 24/7.",
   },
   {
     number: "04",
-    title: "ENTERPRISE SOFTWARE",
-    href: "/systems/enterprise",
-    description: "Purpose-built technology replacing fragmented legacy processes.",
+    title: "HIGH-YIELD REVENUE INFRASTRUCTURE",
+    href: "/#systems",
+    description: "High-ticket intake architecture, conversion telemetry, and automated pipeline infrastructure designed for compounding scale.",
   },
 ];
 

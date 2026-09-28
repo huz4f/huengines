@@ -5,36 +5,36 @@ import { useReveal } from "@/hooks/useReveal";
 const caseStudies = [
   {
     number: "01",
-    category: "B2B Acquisition / LeadEngine",
-    dealScope: "Enterprise Account Focus",
+    category: "Autonomous Healthcare & Clinic Operations",
+    dealScope: "$420K+ Annual Recovery",
     problem:
-      "Fragmented cold outbound across disconnected tools with sub-1% reply rates, high staff turnover, and burned executive domain reputation.",
+      "High-volume private surgical group suffered heavy revenue attrition due to fragmented intake portals, manual phone booking delays, and 48-hour consult follow-up lag.",
     system:
-      "Deployed LeadEngine autonomous architecture: algorithmic account mapping, revenue-leak auditing, and authenticated inbox cluster orchestration.",
+      "Engineered custom real-time patient intake CRM paired with an autonomous 24/7 AI triage engine, calendar synchronization, and HIPAA-compliant automated patient onboarding.",
     outcome:
-      "Rapid enterprise pipeline acceleration within 75 days. 14 verified CXO discovery meetings secured with zero manual sales overhead.",
+      "Consult booking rate increased by 64%. Recaptured $420,000+ in annual lost bookings with instantaneous sub-30-second patient inquiry responses.",
   },
   {
     number: "02",
-    category: "Revenue Infrastructure",
-    dealScope: "Institutional Pipeline",
+    category: "Decentralized Settlement & Treasury Rails",
+    dealScope: "$18M+ Monthly Volume",
     problem:
-      "Excessive acquisition overhead in repetitive manual salaries and SaaS tools producing unpredictable deal velocity and low-intent meetings.",
+      "Cross-border commercial enterprise suffered 4-7% foreign exchange friction, 3-day international settlement delays, and recurring counterparty settlement failures.",
     system:
-      "Replaced manual prospecting with LeadEngine automated reconnaissance, systems auditing, and multi-channel executive delivery.",
+      "Architected custom non-custodial smart contract escrow and multi-chain stablecoin settlement rail with automated treasury liquidity routing and real-time cryptographic audit trails.",
     outcome:
-      "78% reduction in customer acquisition cost and 3.9x higher meeting-to-close conversion rate across enterprise target accounts.",
+      "Reduced settlement latency from 72 hours to sub-12 seconds while slashing cross-border transaction fees by 89% across $18M+ monthly volume.",
   },
   {
     number: "03",
-    category: "Enterprise Systems & Consulting",
-    dealScope: "Multi-Year Engagements",
+    category: "Bespoke Enterprise Logistics & High-Ticket Portal",
+    dealScope: "100% Proprietary IP / Zero SaaS Tax",
     problem:
-      "Bespoke engineering firm struggled to initiate conversations with corporate leadership without consuming hundreds of senior partner hours.",
+      "Mid-market freight and distribution operator was trapped paying $140k/yr in fragmented SaaS licensing across 5 disconnected legacy ERP tools with constant synchronization failure.",
     system:
-      "Engineered audit-first outbound briefs delivering customized infrastructure evaluations directly to target enterprise decision-makers.",
+      "Built a unified proprietary operations operating system: real-time shipment dispatch telemetry, client self-serve tracking portal, and automated invoice factoring.",
     outcome:
-      "4.6x higher response rate vs industry benchmarks. Successfully initiated and signed multiple multi-year transformation contracts.",
+      "Eliminated 100% of recurring third-party software licensing fees. Reduced order-to-dispatch turnaround by 52% with a single, permanent enterprise IP asset.",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function CaseStudies() {
           >
             PROVEN IMPACT ON
             <br />
-            <span className="text-hu-text-secondary">HIGH-VALUE PIPELINES.</span>
+            <span className="text-hu-text-secondary">CRITICAL OPERATIONS.</span>
           </h2>
         </div>
 

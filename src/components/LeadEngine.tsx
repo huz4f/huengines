@@ -5,39 +5,39 @@ import { useReveal } from "@/hooks/useReveal";
 const phases = [
   {
     step: "01",
-    title: "Market & Account Intelligence",
+    title: "Systems & Architecture Audit",
     description:
-      "Algorithmic discovery mapping high-value enterprise accounts and verified executive decision-makers (CEOs, VPs, Managing Directors).",
-    highlight: "Zero generic scraped lists",
+      "Deep technical inspection of existing bottlenecks, operational latency, security exposure, and untapped revenue leverage before writing a single line of code.",
+    highlight: "100% Tailored Architectural Spec",
   },
   {
     step: "02",
-    title: "Systems & Revenue-Leak Audit",
+    title: "Full-Stack Bespoke Engineering",
     description:
-      "Before a single email is dispatched, LeadEngine audits each prospect's infrastructure, finding specific operational bottlenecks and untapped revenue upside.",
-    highlight: "High-context intelligence dossier",
+      "Precision engineering across your exact requirements: high-throughput web/mobile platforms, custom operational CRMs, decentralized crypto settlement rails, or autonomous AI agents.",
+    highlight: "Institutional-Grade Code & Protocols",
   },
   {
     step: "03",
-    title: "Executive-Grade Personalization",
+    title: "Security Hardening & Deployment",
     description:
-      "Bespoke, multi-touch outreach written with deep technical domain knowledge. Messages read as a peer advisory brief—never generic, low-effort sales spam.",
-    highlight: "3.8x industry reply benchmark",
+      "Smart contract audits, penetration testing, encrypted communications, zero-trust access control, and zero-downtime multi-region cloud deployment.",
+    highlight: "Zero-Trust Infrastructure",
   },
   {
     step: "04",
-    title: "Qualified Pipeline Delivery",
+    title: "Autonomous Scaling & Telemetry",
     description:
-      "Pre-qualified CXO discovery calls delivered straight to your calendar, equipped with pre-call dossiers, revenue context, and stated buying criteria.",
-    highlight: "High-intent enterprise meetings",
+      "Self-healing workflows, 24/7 telemetry monitoring, automated operational pipelines, and real-time execution that compounds enterprise value without headcount drag.",
+    highlight: "Proprietary Digital Assets You Own",
   },
 ];
 
 const metrics = [
-  { value: "Tier-1", label: "Executive Account Focus" },
-  { value: "3.8x", label: "Higher Meeting Conversion" },
-  { value: "85%", label: "Lower Acquisition Overhead" },
-  { value: "100%", label: "Calendar Direct Delivery" },
+  { value: "100%", label: "Proprietary Code Ownership" },
+  { value: "< 1s", label: "Real-Time Transaction Finality" },
+  { value: "99.99%", label: "High-Availability System Uptime" },
+  { value: "Zero", label: "Third-Party SaaS Rent-Seeking" },
 ];
 
 export default function LeadEngine() {
@@ -47,7 +47,7 @@ export default function LeadEngine() {
     <section
       ref={sectionRef}
       id="leadengine"
-      className="relative py-28 md:py-40 overflow-hidden bg-hu-black"
+      className="relative py-28 md:py-40 overflow-hidden bg-hu-black scroll-mt-10"
     >
       {/* Background accent glow */}
       <div
@@ -70,7 +70,7 @@ export default function LeadEngine() {
           >
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
-              Proprietary Acquisition Architecture
+              The Hu Engines Architecture
             </span>
             <div className="w-8 h-[1px] bg-hu-accent" />
           </div>
@@ -82,7 +82,7 @@ export default function LeadEngine() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            HOW LEAD<span className="text-hu-accent">ENGINE</span> WORKS.
+            HOW WE <span className="text-hu-accent">ENGINEER</span> & DEPLOY.
           </h2>
 
           <p
@@ -92,9 +92,9 @@ export default function LeadEngine() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            Traditional sales teams burn resources on manual outbound, generic spam templates, 
-            and fragmented tools. LeadEngine replaces that friction with an autonomous, 
-            audit-first acquisition engine designed to secure major enterprise engagements.
+            Whether building high-scale operational platforms, decentralized crypto rails, or 
+            autonomous AI operating systems—our engineering framework guarantees 
+            institutional reliability, unmatched performance, and permanent intellectual property ownership.
           </p>
         </div>
 
@@ -134,7 +134,7 @@ export default function LeadEngine() {
           ))}
         </div>
 
-        {/* Comparison: Why High-Ticket Businesses Choose LeadEngine */}
+        {/* Comparison: Why High-Stakes Businesses Choose Hu Engines */}
         <div
           className={`border border-hu-border bg-hu-card/20 p-8 md:p-12 mb-20 transition-all duration-1000 delay-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -143,28 +143,28 @@ export default function LeadEngine() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <span className="text-hu-accent text-xs font-mono tracking-[0.2em] uppercase block mb-3">
-                The Strategic Difference
+                The Engineering Difference
               </span>
               <h3 className="text-hu-white text-2xl md:text-3xl font-medium tracking-tight mb-4">
-                Why Manual Outbound Fails at Serious Enterprise Contracts
+                Why Off-the-Shelf SaaS & Generic Agencies Fail at Scale
               </h3>
               <p className="text-hu-text-secondary text-sm leading-relaxed mb-6">
-                Enterprise decision-makers discard generic cold templates within two seconds. 
-                Securing high-value commitments requires technical rigor, personalized account auditing, 
-                and verified delivery infrastructure that protects your brand authority.
+                Serious enterprises and high-growth ventures cannot scale on third-party SaaS band-aids, 
+                fragile no-code tools, or junior dev shops. High-stakes operations demand dedicated codebases, 
+                audited cryptographic security, and purpose-built architectures designed around your exact economics.
               </p>
 
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <span className="text-red-400 font-mono text-xs mt-0.5">✕</span>
                   <span className="text-hu-text-muted text-xs leading-relaxed">
-                    <strong>Manual SDRs & Cheap Agencies:</strong> High churn, burned email domains, copy-paste scripts, zero technical comprehension.
+                    <strong>Generic Agencies & SaaS Stacks:</strong> Recurring subscription bleed, rigid feature walls, fragile integration breaks, and zero proprietary asset value.
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-hu-accent font-mono text-xs mt-0.5">✓</span>
                   <span className="text-hu-text-secondary text-xs leading-relaxed">
-                    <strong>LeadEngine Infrastructure:</strong> Deep account reconnaissance, bespoke audit briefs, warm domain clusters, and verified enterprise pipeline delivered on autopilot.
+                    <strong>Hu Engines Custom Systems:</strong> Institutional performance, custom crypto and AI architectures, zero recurring license fees, and 100% intellectual property ownership.
                   </span>
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function LeadEngine() {
             href="#contact"
             className="group inline-flex items-center gap-3 px-10 py-4 bg-hu-accent text-hu-black text-sm font-medium tracking-[0.1em] uppercase hover:bg-hu-white transition-all duration-300 shadow-[0_0_25px_rgba(200,164,110,0.2)]"
           >
-            Deploy LeadEngine for Your Pipeline
+            Commission Custom Architecture
             <svg
               width="14"
               height="14"

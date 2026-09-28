@@ -5,9 +5,10 @@ import Link from "next/link";
 import HuLogo from "./HuLogo";
 
 const navLinks = [
-  { label: "LeadEngine", href: "/#leadengine" },
-  { label: "Outcomes", href: "/#outcomes" },
+  { label: "What We Build", href: "/#systems" },
+  { label: "Crypto & Software", href: "/#systems" },
   { label: "Deployments", href: "/#case-studies" },
+  { label: "Outcomes", href: "/#outcomes" },
   { label: "Partnership", href: "/#who-we-work-with" },
 ];
 

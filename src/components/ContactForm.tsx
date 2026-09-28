@@ -5,12 +5,12 @@ import { useState } from "react";
 import { SITE_CONFIG } from "@/config/site";
 
 const improvementOptions = [
-  { id: "leadengine", label: "LeadEngine & B2B Pipeline" },
-  { id: "outbound", label: "Autonomous Acquisition" },
-  { id: "revenue", label: "Revenue Infrastructure" },
+  { id: "crypto", label: "Crypto & Web3 Systems" },
+  { id: "bespoke", label: "Bespoke Enterprise Software" },
+  { id: "ai", label: "Autonomous AI Agents" },
+  { id: "revenue", label: "High-Yield Revenue Infrastructure" },
   { id: "operations", label: "Operations & Workflows" },
-  { id: "ai", label: "AI Adoption & Agents" },
-  { id: "security", label: "Cybersecurity Systems" },
+  { id: "security", label: "Smart Contracts & High-Security Systems" },
 ];
 
 export default function ContactForm() {
@@ -25,8 +25,8 @@ export default function ContactForm() {
     successCriteria: "",
   });
   const [selectedImprovements, setSelectedImprovements] = useState<string[]>([
-    "LeadEngine & B2B Pipeline",
-    "Revenue Infrastructure",
+    "Crypto & Web3 Systems",
+    "Bespoke Enterprise Software",
   ]);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -193,8 +193,8 @@ export default function ContactForm() {
       successCriteria: "",
     });
     setSelectedImprovements([
-      "LeadEngine & B2B Pipeline",
-      "Revenue Infrastructure",
+      "Crypto & Web3 Systems",
+      "Bespoke Enterprise Software",
     ]);
     setSubmitted(false);
   };
@@ -518,17 +518,20 @@ export default function ContactForm() {
                         <option value="" className="bg-hu-darker text-hu-text-muted">
                           Select engagement tier
                         </option>
-                        <option value="core-architecture" className="bg-hu-darker text-hu-text">
-                          Focused Architecture (Core Acquisition / LeadEngine Deployment)
+                        <option value="crypto-rail" className="bg-hu-darker text-hu-text">
+                          Decentralized System / Crypto Rails Deployment
                         </option>
-                        <option value="multi-department" className="bg-hu-darker text-hu-text">
-                          Multi-Department System (Pipeline Infrastructure &amp; Automation)
+                        <option value="bespoke-software" className="bg-hu-darker text-hu-text">
+                          Bespoke Enterprise Platform / Custom Web &amp; Mobile System
+                        </option>
+                        <option value="autonomous-ai" className="bg-hu-darker text-hu-text">
+                          Autonomous AI Operating Engine &amp; Workflow Orchestration
+                        </option>
+                        <option value="revenue-infra" className="bg-hu-darker text-hu-text">
+                          High-Yield Revenue Infrastructure &amp; Client Intake Architecture
                         </option>
                         <option value="enterprise-transformation" className="bg-hu-darker text-hu-text">
-                          Full Enterprise Operating Architecture
-                        </option>
-                        <option value="strategic-advisory" className="bg-hu-darker text-hu-text">
-                          Strategic Advisory &amp; Ongoing Systems Engineering
+                          Full Enterprise Transformation &amp; Dedicated Engineering Retainer
                         </option>
                       </select>
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-hu-text-muted">
@@ -549,14 +552,14 @@ export default function ContactForm() {
                   {/* Current Bottleneck */}
                   <div>
                     <label className="block text-hu-text-muted text-[11px] tracking-[0.15em] uppercase mb-2">
-                      Current Acquisition Friction or Systems Bottleneck
+                      Current Engineering Challenge or System Friction
                     </label>
                     <textarea
                       name="scope"
                       rows={3}
                       value={formData.scope}
                       onChange={handleInputChange}
-                      placeholder="e.g. Inconsistent enterprise pipeline, low cold outreach conversion, or reliance on manual SDR workflows"
+                      placeholder="e.g. Need a custom crypto settlement rail, high-throughput backend, AI customer triage, or replacing fragmented legacy software"
                       className="w-full bg-hu-black/60 border border-hu-border text-hu-text text-sm px-4 py-3 placeholder:text-hu-text-muted/40 resize-none focus:outline-none focus:border-hu-accent transition-colors duration-300"
                     />
                   </div>
@@ -571,7 +574,7 @@ export default function ContactForm() {
                       rows={2}
                       value={formData.successCriteria}
                       onChange={handleInputChange}
-                      placeholder="e.g. Predictable pipeline velocity, automated qualification, or verified CXO meetings"
+                      placeholder="e.g. Sub-second transaction settlement, 24/7 automated workflows, or 100% custom IP ownership"
                       className="w-full bg-hu-black/60 border border-hu-border text-hu-text text-sm px-4 py-3 placeholder:text-hu-text-muted/40 resize-none focus:outline-none focus:border-hu-accent transition-colors duration-300"
                     />
                   </div>

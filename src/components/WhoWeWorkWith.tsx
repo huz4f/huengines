@@ -3,13 +3,13 @@
 import { useReveal } from "@/hooks/useReveal";
 
 const sectors = [
+  "Crypto & Web3 Protocols",
   "B2B Enterprise Software & SaaS",
-  "High-Value Technical Consulting",
-  "Industrial & Manufacturing Operators",
-  "Financial & FinTech Infrastructure",
-  "Cybersecurity & Cloud Systems",
-  "Logistics & Global Supply Chain",
-  "Healthcare & Life Sciences Tech",
+  "Financial & FinTech Rails",
+  "High-Value Operations & Logistics",
+  "Autonomous AI & Intelligent Systems",
+  "Healthcare & Clinical Tech",
+  "High-Ticket Consulting & Services",
   "Established Mid-Market & Enterprise Operators",
 ];
 
@@ -48,10 +48,10 @@ export default function WhoWeWorkWith() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              BUILT FOR ENTERPRISES
+              BUILT FOR OPERATORS
               <br />
               <span className="text-hu-text-secondary">
-                WHERE PIPELINE MATTERS.
+                WHERE EXECUTION MATTERS.
               </span>
             </h2>
 
@@ -62,9 +62,8 @@ export default function WhoWeWorkWith() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We partner with founders and enterprise leaders where high-trust relationships,
-              rigorous technical architecture, and predictable acquisition systems materially
-              accelerate enterprise growth.
+              We partner with ambitious founders, crypto protocols, and enterprise executives who
+              demand custom software and autonomous systems built to institutional standards.
             </p>
 
             <p
@@ -74,9 +73,9 @@ export default function WhoWeWorkWith() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              Our deployments are intentionally selective. We engineer bespoke 
-              acquisition infrastructure for companies ready to replace fragile manual 
-              outreach with predictable systems that compound over quarters.
+              Our deployments are intentionally selective. We engineer zero-compromise digital 
+              engines for businesses that require high-availability infrastructure, proprietary IP 
+              ownership, and direct commercial leverage.
             </p>
           </div>
 

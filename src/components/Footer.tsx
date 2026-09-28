@@ -2,17 +2,17 @@ import Link from "next/link";
 import HuLogo from "./HuLogo";
 
 const footerSystems = [
-  { label: "Revenue Infrastructure", href: "/systems/revenue" },
-  { label: "AI Operating Systems", href: "/systems/ai" },
-  { label: "Cybersecurity Systems", href: "/systems/security" },
-  { label: "Enterprise Software", href: "/systems/enterprise" },
+  { label: "Crypto & Web3 Rails", href: "/#systems" },
+  { label: "Bespoke Enterprise Software", href: "/#systems" },
+  { label: "Autonomous AI Agents", href: "/#systems" },
+  { label: "High-Yield Infrastructure", href: "/#systems" },
 ];
 
 const footerCompany = [
-  { label: "LeadEngine", href: "/leadengine" },
-  { label: "Approach", href: "/approach" },
-  { label: "Case Studies", href: "/#case-studies" },
-  { label: "Contact", href: "/contact" },
+  { label: "Architecture", href: "/leadengine" },
+  { label: "Approach", href: "/#approach" },
+  { label: "Deployments", href: "/#case-studies" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {

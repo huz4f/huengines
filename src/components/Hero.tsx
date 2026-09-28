@@ -3,18 +3,18 @@
 import { useEffect, useState } from "react";
 
 const flowSteps = [
-  "Human Intent",
-  "Intelligence",
-  "Systems",
-  "Execution",
-  "Business Outcome",
+  "Core Intent",
+  "Architecture",
+  "Custom Engineering",
+  "Security & Deploy",
+  "Compounding Scale",
 ];
 
 const credibilityItems = [
-  "AI Systems",
-  "Revenue Infrastructure",
-  "Cybersecurity",
-  "Automation",
+  "Custom Enterprise Platforms",
+  "Crypto & Web3 Systems",
+  "Autonomous AI Agents",
+  "Institutional Engineering",
 ];
 
 export default function Hero() {
@@ -68,22 +68,22 @@ export default function Hero() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              AUTONOMOUS REVENUE
+              BESPOKE SOFTWARE,
               <br />
-              INFRASTRUCTURE FOR
+              CRYPTO SYSTEMS &
               <br />
-              <span className="text-hu-text-secondary">HIGH-GROWTH ENTERPRISES.</span>
+              <span className="text-hu-text-secondary">AUTONOMOUS AI ENGINES.</span>
             </h1>
 
             {/* Subheadline */}
             <p
-              className={`text-hu-text-secondary text-lg md:text-xl leading-relaxed max-w-[580px] mb-10 transition-all duration-1000 delay-400 ${
+              className={`text-hu-text-secondary text-lg md:text-xl leading-relaxed max-w-[620px] mb-10 transition-all duration-1000 delay-400 ${
                 loaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We design and deploy <strong className="text-hu-white font-medium">LeadEngine</strong>—an intelligent acquisition architecture that identifies, audits, and converts high-value enterprise accounts into predictable, high-yield client pipelines.
+              We design, build, and deploy high-demand digital systems—from custom enterprise platforms and decentralized crypto settlement rails to autonomous AI operating systems engineered to deliver undeniable commercial leverage.
             </p>
 
             {/* CTAs */}
@@ -98,7 +98,7 @@ export default function Hero() {
                 href="#contact"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-hu-accent text-hu-black text-sm font-medium tracking-[0.1em] uppercase hover:bg-hu-white transition-colors duration-300"
               >
-                Request Systems Audit
+                Request Systems Architecture
                 <svg
                   width="14"
                   height="14"
@@ -114,10 +114,10 @@ export default function Hero() {
                 </svg>
               </a>
               <a
-                href="#leadengine"
+                href="#systems"
                 className="inline-flex items-center gap-3 px-8 py-4 border border-hu-border text-hu-text-secondary text-sm tracking-[0.1em] uppercase hover:border-hu-accent hover:text-hu-white transition-all duration-300"
               >
-                Explore LeadEngine
+                Explore What We Build
               </a>
             </div>
 
@@ -129,7 +129,7 @@ export default function Hero() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              {["High-Value Enterprise Focus", "Autonomous Acquisition", "Verified Pipeline", "Institutional Reliability"].map((item, i, arr) => (
+              {["Custom Enterprise Platforms", "Crypto & Web3 Systems", "Autonomous AI Agents", "Institutional Engineering"].map((item, i, arr) => (
                 <span key={item} className="flex items-center gap-3">
                   <span className="text-hu-text-secondary font-medium">{item}</span>
                   {i < arr.length - 1 && (

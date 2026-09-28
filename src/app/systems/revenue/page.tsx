@@ -6,20 +6,20 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Revenue Infrastructure | HU Engines",
   description:
-    "Autonomous revenue systems — prospect intelligence, outbound infrastructure, and pipeline acceleration.",
+    "Autonomous revenue systems — high-converting customer portals, automated intake triage, and pipeline infrastructure.",
 };
 
 const capabilities = [
   {
-    title: "Lead Intelligence Engine",
-    description: "Deep enrichment and intent mapping identifying active high-value enterprise buyers.",
+    title: "High-Ticket Client Intake Engine",
+    description: "Deep qualification and behavioral intent mapping capturing high-value commercial accounts.",
   },
   {
-    title: "Automated Website Auditing",
-    description: "Algorithmic diagnosis of prospect infrastructure, identifying revenue leaks and opportunities.",
+    title: "Real-Time Conversion Auditing",
+    description: "Algorithmic diagnosis of customer drop-off, identifying operational and revenue leaks.",
   },
   {
-    title: "Dynamic Outreach Orchestration",
+    title: "Autonomous Demand Capture & Triage",
     description: "Multi-channel coordinated communication personalized at individual and company level.",
   },
   {
@@ -84,7 +84,7 @@ export default function RevenueSystemPage() {
                 Deploy Revenue Infrastructure for Your Organization
               </h3>
               <p className="text-hu-text-secondary text-sm max-w-[500px]">
-                We architect custom outbound pipelines and lead engines calibrated to your business model.
+                We architect custom revenue infrastructure, intake engines, and client portals calibrated to your business model.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4">
@@ -98,7 +98,7 @@ export default function RevenueSystemPage() {
                 href="/leadengine"
                 className="px-8 py-4 border border-hu-border text-hu-text-secondary text-sm tracking-[0.1em] uppercase hover:border-hu-accent hover:text-hu-white transition-all duration-300"
               >
-                View LeadEngine
+                View Architecture
               </Link>
             </div>
           </div>

@@ -109,69 +109,69 @@ function SystemCard({
 const systems = [
   {
     number: "01",
-    title: "REVENUE INFRASTRUCTURE",
+    title: "CRYPTO & DECENTRALIZED RAILS",
     description:
-      "Build autonomous systems that identify opportunities, research prospects, personalize outreach, qualify demand, and accelerate sales execution.",
+      "Architect and deploy high-frequency crypto payment gateways, cross-border settlement rails, smart contract protocols, and institutional self-custody systems.",
     capabilities: [
-      "Market Intelligence",
-      "Prospect Intelligence",
-      "Outbound Infrastructure",
-      "AI-Assisted Sales",
-      "CRM Orchestration",
-      "Proposal Automation",
-      "Revenue Analytics",
+      "Crypto Settlement Rails",
+      "Smart Contracts",
+      "DeFi Architecture",
+      "Payment Gateways",
+      "Algorithmic Execution",
+      "Multi-Chain Routing",
+      "On-Chain Analytics",
+      "Custody Integration",
     ],
-    cta: "Explore Revenue Systems →",
+    cta: "Explore Crypto Systems →",
   },
   {
     number: "02",
-    title: "AI OPERATING SYSTEMS",
+    title: "BESPOKE ENTERPRISE SOFTWARE",
     description:
-      "Deploy intelligent agents and automated workflows across the organization to compound operational efficiency.",
+      "Replace off-the-shelf software and manual bottlenecks with custom operational platforms, native mobile applications (iOS/Android), and high-throughput backend systems.",
     capabilities: [
-      "AI Agents",
-      "Workflow Automation",
-      "Knowledge Systems",
+      "Custom Operations CRMs",
+      "Native Mobile Apps (iOS/Android)",
+      "Internal ERP Platforms",
+      "Client Intake Portals",
+      "High-Throughput APIs",
+      "Database Architecture",
+      "Cloud Infrastructure",
+      "Real-Time Dashboards",
+    ],
+    cta: "Explore Enterprise Software →",
+  },
+  {
+    number: "03",
+    title: "AUTONOMOUS AI OPERATING SYSTEMS",
+    description:
+      "Deploy 24/7 autonomous intelligence agents and self-executing workflows that handle client triage, scheduling, qualification, and high-complexity business operations.",
+    capabilities: [
+      "Autonomous AI Agents",
+      "Speed-to-Lead Triage",
+      "Workflow Orchestration",
       "Document Intelligence",
-      "Decision Support",
-      "Process Automation",
-      "AI Integration",
+      "Decision Automation",
+      "Conversational AI",
+      "Zero-Human Drag",
     ],
     cta: "Explore AI Systems →",
   },
   {
-    number: "03",
-    title: "CYBERSECURITY SYSTEMS",
-    description:
-      "Design security infrastructure for companies operating at scale. Build resilience into the technology layer.",
-    capabilities: [
-      "Security Architecture",
-      "Attack-Surface Intelligence",
-      "Cloud Security",
-      "Identity & Access",
-      "Vulnerability Management",
-      "Monitoring",
-      "Incident Response",
-      "Compliance Automation",
-    ],
-    cta: "Explore Security Systems →",
-  },
-  {
     number: "04",
-    title: "ENTERPRISE SOFTWARE",
+    title: "HIGH-YIELD REVENUE INFRASTRUCTURE",
     description:
-      "Replace fragmented legacy processes with purpose-built technology designed around the economics of your business.",
+      "Design high-ticket client intake, conversion telemetry, automated proposal desks, and bespoke checkout architecture built to maximize transaction yield.",
     capabilities: [
-      "Internal Platforms",
-      "Operational Software",
-      "Dashboards",
-      "Data Infrastructure",
-      "APIs",
-      "Integrations",
-      "Mobile Systems",
-      "Cloud Infrastructure",
+      "High-Ticket Funnels",
+      "Intake Automation",
+      "Conversion Telemetry",
+      "Proposal Desks",
+      "Revenue Diagnostics",
+      "Payment Orchestration",
+      "Client Onboarding Rails",
     ],
-    cta: "Explore Enterprise Systems →",
+    cta: "Explore Revenue Systems →",
   },
 ];
 
@@ -210,9 +210,9 @@ export default function WhatWeBuild() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            INTELLIGENCE, ENGINEERED
+            HIGH-DEMAND DIGITAL SYSTEMS,
             <br />
-            <span className="text-hu-text-secondary">INTO THE BUSINESS.</span>
+            <span className="text-hu-text-secondary">ENGINEERED FOR SUPREMACY.</span>
           </h2>
         </div>
 

@@ -4,43 +4,29 @@ import { useReveal } from "@/hooks/useReveal";
 
 const outcomes = [
   {
-    title: "PREDICTABLE PIPELINE",
+    title: "MISSION-CRITICAL RELIABILITY",
     description:
-      "Transform haphazard outreach into an autonomous engine delivering consistent, qualified executive conversations every week.",
+      "Fault-tolerant distributed architecture, zero-downtime rolling deployments, and automated self-healing infrastructure engineered for 99.99% uptime.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M4 22l6-8 5 4 9-14" />
-        <path d="M18 4h6v6" />
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
   },
   {
-    title: "ZERO SDR OVERHEAD",
+    title: "SUB-SECOND LATENCY & FINALITY",
     description:
-      "Eliminate the costly cycle of recruiting, ramping, and churning manual sales reps with low, unpredictable returns.",
+      "High-throughput smart contracts, event-driven microservices, and optimized databases engineered for real-time transaction execution and settlement.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v6l4 2" />
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
   },
   {
-    title: "EXECUTIVE-LEVEL ENGAGEMENT",
+    title: "100% PROPRIETARY IP ASSETS",
     description:
-      "Reach enterprise decision-makers through audit-backed value propositions that establish immediate credibility.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <polyline points="16 11 18 13 22 9" />
-      </svg>
-    ),
-  },
-  {
-    title: "COMPOUNDING IP & ASSETS",
-    description:
-      "Build proprietary pipeline assets you own—dedicated domain clusters, algorithmic scrapers, and enriched intelligence.",
+      "Own every line of code, database schema, and deployment pipeline. Zero vendor lock-in, zero third-party platform risk, and zero perpetual SaaS tax.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <rect x="3" y="3" width="7" height="7" />
@@ -51,23 +37,35 @@ const outcomes = [
     ),
   },
   {
-    title: "BULLETPROOF DELIVERABILITY",
+    title: "AUTONOMOUS WORKFLOW LEVERAGE",
     description:
-      "Enterprise inbox warming, SPF/DKIM/DMARC routing, and domain isolation ensuring 99.4%+ primary inbox placement.",
+      "Deterministic AI agents and automated state machines that execute client intake, triage, and multi-step operations 24/7 without headcount drag.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 6v6l4 2" />
       </svg>
     ),
   },
   {
-    title: "MEASURABLE ROI",
+    title: "INSTITUTIONAL SECURITY",
     description:
-      "Every outreach sequence is benchmarked against real enterprise pipeline value and contract conversions.",
+      "Defensive architecture, audited smart contract rails, cryptographic key management, and zero-trust perimeter enforcement protecting high-stakes data.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v12M6 12h12" />
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+    ),
+  },
+  {
+    title: "COMPOUNDING COMMERCIAL ROI",
+    description:
+      "Every system is designed around direct enterprise economics—slashing operational costs, capturing lost margin, and creating defensible competitive moats.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M4 22l6-8 5 4 9-14" />
+        <path d="M18 4h6v6" />
       </svg>
     ),
   },
@@ -94,7 +92,7 @@ export default function Outcomes() {
           >
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
-              Enterprise Outcomes
+              Engineering Outcomes
             </span>
           </div>
 
@@ -105,7 +103,7 @@ export default function Outcomes() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            WHAT AUTONOMOUS PIPELINE
+            WHAT BESPOKE ENGINEERING
             <br />
             <span className="text-hu-text-secondary">MAKES POSSIBLE.</span>
           </h2>
