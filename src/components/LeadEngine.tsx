@@ -41,7 +41,7 @@ const metrics = [
 ];
 
 export default function LeadEngine() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.1);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
 
   return (
     <section

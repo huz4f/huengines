@@ -97,7 +97,7 @@ const engineeringRecords: EngineeringRecord[] = [
 ];
 
 export default function CaseStudies() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.1);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
 
   return (
     <section

@@ -14,7 +14,7 @@ const lines = [
 ];
 
 export default function Philosophy() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.15);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
 
   return (
     <section

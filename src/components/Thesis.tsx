@@ -13,13 +13,13 @@ const transitionSteps = [
 ];
 
 export default function Thesis() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.15);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
     if (isVisible) {
-      const timer = setTimeout(() => setConnected(true), 1000);
+      const timer = setTimeout(() => setConnected(true), 700);
       return () => clearTimeout(timer);
     }
   }, [isVisible]);

@@ -84,7 +84,7 @@ const domains: TechDomain[] = [
 ];
 
 export default function TechnicalDepth() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.1);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
   const [activeTab, setActiveTab] = useState<string>("all");
 
   const displayedDomains =

@@ -190,7 +190,7 @@ const systems = [
 ];
 
 export default function WhatWeBuild() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.1);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
 
   return (
     <section

@@ -4,7 +4,7 @@ import { useReveal } from "@/hooks/useReveal";
 import Link from "next/link";
 
 export default function FinalCTA() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.15);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
 
   return (
     <section

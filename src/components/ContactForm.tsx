@@ -58,7 +58,7 @@ const improvementOptions: SystemFocusOption[] = [
 ];
 
 export default function ContactForm() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.1);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
   const [formData, setFormData] = useState({
     name: "",
     email: "",

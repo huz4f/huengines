@@ -87,7 +87,7 @@ const securityPractices = [
 ];
 
 export default function OwnershipAndSecurity() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.1);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
 
   return (
     <section

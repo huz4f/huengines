@@ -31,7 +31,7 @@ const steps: EngagementStep[] = [
 ];
 
 export default function Engagement() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>(0.15);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
 
   return (
     <section
