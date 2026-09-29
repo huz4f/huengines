@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 
 const flowSteps = [
-  "Core Intent",
-  "Architecture",
-  "Custom Engineering",
-  "Security & Deploy",
-  "Compounding Scale",
+  "Human Intent",
+  "Intelligence",
+  "Systems",
+  "Execution",
+  "Business Outcome",
 ];
 
 export default function Hero() {
