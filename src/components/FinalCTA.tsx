@@ -1,6 +1,7 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
+import Link from "next/link";
 
 export default function FinalCTA() {
   const [sectionRef, isVisible] = useReveal<HTMLElement>(0.15);
@@ -50,7 +51,7 @@ export default function FinalCTA() {
               : "opacity-0 translate-y-6"
           }`}
         >
-          <a
+          <Link
             href="/#contact"
             className="group inline-flex items-center gap-3 px-10 py-5 bg-hu-accent text-hu-black text-sm font-medium tracking-[0.1em] uppercase hover:bg-hu-white transition-colors duration-300"
           >
@@ -68,7 +69,7 @@ export default function FinalCTA() {
                 strokeWidth="1.5"
               />
             </svg>
-          </a>
+          </Link>
           <a
             href="/systems"
             className="inline-flex items-center gap-3 px-10 py-5 border border-hu-border text-hu-text-secondary text-sm tracking-[0.1em] uppercase hover:border-hu-accent hover:text-hu-white transition-all duration-300"

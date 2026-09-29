@@ -10,13 +10,6 @@ const flowSteps = [
   "Compounding Scale",
 ];
 
-const credibilityItems = [
-  "Custom Enterprise Platforms",
-  "Crypto & Web3 Systems",
-  "Autonomous AI Agents",
-  "Institutional Engineering",
-];
-
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
 
@@ -68,22 +61,22 @@ export default function Hero() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              BESPOKE SOFTWARE,
+              PROPRIETARY SOFTWARE,
               <br />
-              CRYPTO SYSTEMS &
+              AUTONOMOUS AI SYSTEMS &amp;
               <br />
-              <span className="text-hu-text-secondary">AUTONOMOUS AI ENGINES.</span>
+              <span className="text-hu-text-secondary">FINANCIAL INFRASTRUCTURE.</span>
             </h1>
 
             {/* Subheadline */}
             <p
-              className={`text-hu-text-secondary text-lg md:text-xl leading-relaxed max-w-[620px] mb-10 transition-all duration-1000 delay-400 ${
+              className={`text-hu-text-secondary text-lg md:text-xl leading-relaxed max-w-[640px] mb-10 transition-all duration-1000 delay-400 ${
                 loaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We design, build, and deploy high-demand digital systems—from custom enterprise platforms and decentralized crypto settlement rails to autonomous AI operating systems engineered to deliver undeniable commercial leverage.
+              We engineer proprietary systems for high-complexity operations—unifying custom software, autonomous AI workflows, digital asset rails, and revenue infrastructure into permanent, client-owned enterprise assets.
             </p>
 
             {/* CTAs */}
@@ -98,7 +91,7 @@ export default function Hero() {
                 href="#contact"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-hu-accent text-hu-black text-sm font-medium tracking-[0.1em] uppercase hover:bg-hu-white transition-colors duration-300"
               >
-                Request Systems Architecture
+                Initiate Systems Audit
                 <svg
                   width="14"
                   height="14"
@@ -117,7 +110,7 @@ export default function Hero() {
                 href="#systems"
                 className="inline-flex items-center gap-3 px-8 py-4 border border-hu-border text-hu-text-secondary text-sm tracking-[0.1em] uppercase hover:border-hu-accent hover:text-hu-white transition-all duration-300"
               >
-                Explore What We Build
+                Explore Systems
               </a>
             </div>
 
@@ -129,7 +122,12 @@ export default function Hero() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              {["Custom Enterprise Platforms", "Crypto & Web3 Systems", "Autonomous AI Agents", "Institutional Engineering"].map((item, i, arr) => (
+              {[
+                "Proprietary Software",
+                "Autonomous AI Systems",
+                "Crypto & Financial Systems",
+                "Revenue Infrastructure",
+              ].map((item, i, arr) => (
                 <span key={item} className="flex items-center gap-3">
                   <span className="text-hu-text-secondary font-medium">{item}</span>
                   {i < arr.length - 1 && (

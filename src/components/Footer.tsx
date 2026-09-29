@@ -2,17 +2,19 @@ import Link from "next/link";
 import HuLogo from "./HuLogo";
 
 const footerSystems = [
-  { label: "Crypto & Web3 Rails", href: "/#systems" },
-  { label: "Bespoke Enterprise Software", href: "/#systems" },
-  { label: "Autonomous AI Agents", href: "/#systems" },
-  { label: "High-Yield Infrastructure", href: "/#systems" },
+  { label: "01 — Proprietary Software", href: "/#systems" },
+  { label: "02 — Autonomous AI Systems", href: "/#systems" },
+  { label: "03 — Crypto & Financial Systems", href: "/#systems" },
+  { label: "04 — Revenue Infrastructure", href: "/#systems" },
 ];
 
 const footerCompany = [
-  { label: "Architecture", href: "/leadengine" },
-  { label: "Approach", href: "/#approach" },
-  { label: "Deployments", href: "/#case-studies" },
-  { label: "Contact", href: "/#contact" },
+  { label: "The Missing Layer", href: "/#thesis" },
+  { label: "Engineering Method", href: "/#method" },
+  { label: "Technical Depth", href: "/#technical-depth" },
+  { label: "Selected Systems", href: "/#deployments" },
+  { label: "Ownership & Security", href: "/#ownership-and-security" },
+  { label: "Commercial Engagement", href: "/#engagement" },
 ];
 
 export default function Footer() {
@@ -26,13 +28,13 @@ export default function Footer() {
               <HuLogo variant="badge" size="md" />
             </Link>
             <p className="text-hu-text-muted text-sm leading-relaxed max-w-[260px]">
-              Human intelligence, amplified by intelligent systems.
+              Human intelligence, amplified by proprietary operating systems.
             </p>
           </div>
 
           {/* Systems */}
           <div>
-            <h4 className="text-hu-text-muted text-[11px] tracking-[0.2em] uppercase mb-6">
+            <h4 className="text-hu-text-muted text-[11px] tracking-[0.2em] uppercase mb-6 font-mono">
               Systems
             </h4>
             <ul className="space-y-3">
@@ -51,8 +53,8 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-hu-text-muted text-[11px] tracking-[0.2em] uppercase mb-6">
-              Company
+            <h4 className="text-hu-text-muted text-[11px] tracking-[0.2em] uppercase mb-6 font-mono">
+              Architecture
             </h4>
             <ul className="space-y-3">
               {footerCompany.map((link) => (
@@ -70,15 +72,15 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-hu-text-muted text-[11px] tracking-[0.2em] uppercase mb-6">
-              Get in Touch
+            <h4 className="text-hu-text-muted text-[11px] tracking-[0.2em] uppercase mb-6 font-mono">
+              Engagement
             </h4>
             <div className="space-y-3">
-              <a
+              <Link
                 href="/#contact"
-                className="inline-flex items-center gap-2 text-hu-accent text-sm hover:text-hu-white transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-hu-accent text-sm hover:text-hu-white transition-colors duration-300 font-medium uppercase tracking-wide text-xs"
               >
-                Start a Transformation
+                Initiate Systems Audit
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path
                     d="M3 1h8v8M11 1L1 11"
@@ -86,7 +88,7 @@ export default function Footer() {
                     strokeWidth="1.5"
                   />
                 </svg>
-              </a>
+              </Link>
               <div className="pt-2">
                 <a
                   href="mailto:sales@huengines.com"

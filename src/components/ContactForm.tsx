@@ -5,12 +5,12 @@ import { useState } from "react";
 import { SITE_CONFIG } from "@/config/site";
 
 const improvementOptions = [
-  { id: "crypto", label: "Crypto & Web3 Systems" },
-  { id: "bespoke", label: "Bespoke Enterprise Software" },
-  { id: "ai", label: "Autonomous AI Agents" },
-  { id: "revenue", label: "High-Yield Revenue Infrastructure" },
-  { id: "operations", label: "Operations & Workflows" },
-  { id: "security", label: "Smart Contracts & High-Security Systems" },
+  { id: "proprietary", label: "01 — Proprietary Software" },
+  { id: "ai", label: "02 — Autonomous AI Systems" },
+  { id: "crypto", label: "03 — Crypto & Financial Systems" },
+  { id: "revenue", label: "04 — Revenue & Operating Infrastructure" },
+  { id: "audit", label: "Systems Architecture Audit" },
+  { id: "security", label: "Defensive Security & Hardening" },
 ];
 
 export default function ContactForm() {
@@ -25,8 +25,8 @@ export default function ContactForm() {
     successCriteria: "",
   });
   const [selectedImprovements, setSelectedImprovements] = useState<string[]>([
-    "Crypto & Web3 Systems",
-    "Bespoke Enterprise Software",
+    "01 — Proprietary Software",
+    "02 — Autonomous AI Systems",
   ]);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -518,20 +518,20 @@ export default function ContactForm() {
                         <option value="" className="bg-hu-darker text-hu-text-muted">
                           Select engagement tier
                         </option>
-                        <option value="crypto-rail" className="bg-hu-darker text-hu-text">
-                          Decentralized System / Crypto Rails Deployment
-                        </option>
-                        <option value="bespoke-software" className="bg-hu-darker text-hu-text">
-                          Bespoke Enterprise Platform / Custom Web &amp; Mobile System
+                        <option value="proprietary-software" className="bg-hu-darker text-hu-text">
+                          01 — Proprietary Software &amp; Operational Platform
                         </option>
                         <option value="autonomous-ai" className="bg-hu-darker text-hu-text">
-                          Autonomous AI Operating Engine &amp; Workflow Orchestration
+                          02 — Autonomous AI Operating System &amp; Workflows
+                        </option>
+                        <option value="crypto-financial" className="bg-hu-darker text-hu-text">
+                          03 — Crypto &amp; Financial Infrastructure Rails
                         </option>
                         <option value="revenue-infra" className="bg-hu-darker text-hu-text">
-                          High-Yield Revenue Infrastructure &amp; Client Intake Architecture
+                          04 — Revenue &amp; Operating Infrastructure
                         </option>
                         <option value="enterprise-transformation" className="bg-hu-darker text-hu-text">
-                          Full Enterprise Transformation &amp; Dedicated Engineering Retainer
+                          Full Enterprise Systems Transformation &amp; Retainer
                         </option>
                       </select>
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-hu-text-muted">

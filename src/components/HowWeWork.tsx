@@ -2,56 +2,48 @@
 
 import { useReveal } from "@/hooks/useReveal";
 
-const steps = [
+interface Stage {
+  number: string;
+  title: string;
+  description: string;
+  deliverable: string;
+}
+
+const stages: Stage[] = [
   {
     number: "01",
-    title: "DISCOVER",
+    title: "AUDIT",
     description:
-      "Map the business, bottlenecks, economics and opportunities. Understand the system before designing the solution.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="11" cy="11" r="8" />
-        <path d="M21 21l-4.35-4.35" />
-      </svg>
-    ),
+      "Understand the existing infrastructure, workflows, bottlenecks and technical constraints.",
+    deliverable: "Systems Audit & Architecture Spec",
   },
   {
     number: "02",
     title: "ARCHITECT",
     description:
-      "Design the technology and intelligence layer required. Specify the infrastructure, data flows, and integration points.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="3" width="7" height="7" />
-        <rect x="14" y="3" width="7" height="7" />
-        <rect x="3" y="14" width="7" height="7" />
-        <rect x="14" y="14" width="7" height="7" />
-      </svg>
-    ),
+      "Design the system, data model, integrations, security model and operating logic.",
+    deliverable: "Data Schema & Security Blueprint",
   },
   {
     number: "03",
-    title: "DEPLOY",
+    title: "ENGINEER",
     description:
-      "Build, integrate and operationalize the system. Deploy into the business with minimal disruption and maximum precision.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-      </svg>
-    ),
+      "Build the proprietary software, AI, APIs, interfaces and infrastructure.",
+    deliverable: "Production Codebase & Test Coverage",
   },
   {
     number: "04",
+    title: "DEPLOY",
+    description:
+      "Integrate with the existing environment and move the system into production.",
+    deliverable: "Zero-Downtime Staging & Production Cutover",
+  },
+  {
+    number: "05",
     title: "COMPOUND",
     description:
-      "Continuously optimize the infrastructure using real-world data. Systems that learn, adapt, and compound value over time.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12" />
-      </svg>
-    ),
+      "Measure, improve and extend the system as the business evolves.",
+    deliverable: "Telemetry Monitoring & Feature Evolution",
   },
 ];
 
@@ -61,14 +53,14 @@ export default function HowWeWork() {
   return (
     <section
       ref={sectionRef}
-      id="approach"
-      className="relative py-32 md:py-44 bg-hu-darker"
+      id="method"
+      className="relative py-32 md:py-44 bg-hu-black scroll-mt-10"
     >
       <div className="noise-overlay absolute inset-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-20 max-w-[840px]">
           <div
             className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
               isVisible
@@ -78,74 +70,100 @@ export default function HowWeWork() {
           >
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
-              Our Approach
+              Engineering Method
             </span>
           </div>
 
           <h2
-            className={`text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-hu-white transition-all duration-700 delay-200 ${
+            className={`text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-hu-white mb-6 transition-all duration-700 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
             }`}
           >
-            FROM PROBLEM TO
+            FROM BUSINESS COMPLEXITY
             <br />
-            <span className="text-hu-text-secondary">OPERATING SYSTEM.</span>
+            <span className="text-hu-text-secondary">TO SYSTEM.</span>
           </h2>
+
+          <p
+            className={`text-hu-text-secondary text-base leading-relaxed transition-all duration-700 delay-300 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
+            }`}
+          >
+            A disciplined engineering lifecycle engineered for high-stakes operational environments.
+            We eliminate technical ambiguity before writing code and ensure production reliability at scale.
+          </p>
         </div>
 
-        {/* Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, i) => (
+        {/* 5-Stage Engineering Lifecycle Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          {stages.map((stage, i) => (
             <div
-              key={step.number}
-              className={`group relative border border-hu-border bg-hu-card/20 p-8 hover:border-hu-accent/30 transition-all duration-700 ${
+              key={stage.number}
+              className={`group relative border border-hu-border bg-hu-card/25 p-7 hover:border-hu-accent/40 transition-all duration-500 flex flex-col justify-between ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
-              style={{ transitionDelay: `${400 + i * 150}ms` }}
+              style={{ transitionDelay: `${300 + i * 120}ms` }}
             >
-              {/* Step connector line on desktop */}
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-[1px] bg-hu-border z-10" />
-              )}
+              <div>
+                {/* Stage number */}
+                <div className="flex items-center justify-between mb-8 pb-3 border-b border-hu-border/60">
+                  <span className="text-hu-accent font-mono text-xs tracking-wider">
+                    {stage.number}
+                  </span>
+                  <span className="text-[10px] font-mono tracking-widest text-hu-text-muted uppercase">
+                    Stage
+                  </span>
+                </div>
 
-              {/* Icon */}
-              <div className="text-hu-text-muted group-hover:text-hu-accent transition-colors duration-300 mb-6">
-                {step.icon}
+                {/* Title */}
+                <h3 className="text-hu-white text-lg font-medium tracking-[0.04em] mb-4">
+                  {stage.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-hu-text-secondary text-xs leading-relaxed mb-8">
+                  {stage.description}
+                </p>
               </div>
 
-              {/* Number */}
-              <span className="text-hu-accent/50 text-[11px] font-mono tracking-wider mb-4 block">
-                {step.number}
-              </span>
-
-              {/* Title */}
-              <h3 className="text-hu-white text-lg font-medium tracking-[0.02em] mb-4">
-                {step.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-hu-text-secondary text-sm leading-relaxed">
-                {step.description}
-              </p>
-
-              {/* Bottom accent line on hover */}
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-hu-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              {/* Deliverable tag */}
+              <div className="pt-4 border-t border-hu-border/60">
+                <span className="block text-[9px] uppercase font-mono tracking-[0.15em] text-hu-text-muted mb-1">
+                  Deliverable
+                </span>
+                <span className="text-[11px] font-mono tracking-wide text-hu-accent/90">
+                  {stage.deliverable}
+                </span>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Supporting text */}
-        <p
-          className={`mt-16 text-center text-hu-text-muted text-sm tracking-wide max-w-[600px] mx-auto transition-all duration-700 delay-1000 ${
+        {/* Bottom summary bar */}
+        <div
+          className={`mt-12 p-6 border border-hu-border bg-hu-card/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all duration-700 delay-900 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          Build once. Integrate deeply. Compound continuously.
-        </p>
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-hu-accent" />
+            <span className="text-hu-text-secondary text-xs font-mono tracking-wide">
+              Rigorous architectural review at every stage. Zero unverified code enters your production environment.
+            </span>
+          </div>
+          <a
+            href="#contact"
+            className="text-hu-accent text-xs font-mono uppercase tracking-wider hover:text-hu-white transition-colors duration-300"
+          >
+            Review Audit Prerequisites →
+          </a>
+        </div>
       </div>
     </section>
   );

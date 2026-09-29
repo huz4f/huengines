@@ -4,8 +4,8 @@ import HowWeWork from "@/components/HowWeWork";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Approach | HU Engines",
-  description: "From problem to operating system — discover how HU Engines architects and deploys intelligent infrastructure.",
+  title: "Engineering Method | HU Engines",
+  description: "From business complexity to system — discover the five-stage engineering lifecycle used by HU Engines to architect and deploy proprietary infrastructure.",
 };
 
 export default function ApproachPage() {

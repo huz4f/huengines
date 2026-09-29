@@ -1,12 +1,13 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 
 interface SystemCardProps {
   number: string;
   title: string;
   description: string;
+  disclaimer?: string;
   capabilities: string[];
   cta: string;
   delay: number;
@@ -17,6 +18,7 @@ function SystemCard({
   number,
   title,
   description,
+  disclaimer,
   capabilities,
   cta,
   delay,
@@ -41,7 +43,7 @@ function SystemCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative group border border-hu-border bg-hu-card/30 p-8 md:p-10 card-hover transition-all duration-700 ${
+      className={`relative group border border-hu-border bg-hu-card/30 p-8 md:p-10 card-hover flex flex-col justify-between transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{ transitionDelay: `${delay}ms` }}
@@ -61,37 +63,46 @@ function SystemCard({
         />
       )}
 
-      {/* Number */}
-      <span className="text-hu-text-muted text-xs font-mono tracking-wider mb-6 block">
-        {number}
-      </span>
-
-      {/* Title */}
-      <h3 className="text-hu-white text-xl md:text-2xl font-medium tracking-[-0.01em] mb-4">
-        {title}
-      </h3>
-
-      {/* Description */}
-      <p className="text-hu-text-secondary text-sm leading-relaxed mb-8">
-        {description}
-      </p>
-
-      {/* Capabilities */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        {capabilities.map((cap) => (
-          <span
-            key={cap}
-            className="px-3 py-1.5 text-[11px] tracking-[0.08em] uppercase text-hu-text-muted border border-hu-border bg-hu-black/50 group-hover:border-hu-border-light transition-colors duration-300"
-          >
-            {cap}
+      <div>
+        {/* Top header row */}
+        <div className="flex items-center justify-between mb-6">
+          <span className="text-hu-accent font-mono text-xs tracking-wider">
+            {number}
           </span>
-        ))}
+          {disclaimer && (
+            <span className="text-[10px] font-mono tracking-wider text-hu-text-muted border border-hu-border px-2 py-0.5 uppercase">
+              {disclaimer}
+            </span>
+          )}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-hu-white text-xl md:text-2xl font-medium tracking-[-0.01em] mb-4">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-hu-text-secondary text-sm leading-relaxed mb-8">
+          {description}
+        </p>
+
+        {/* Capabilities */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {capabilities.map((cap) => (
+            <span
+              key={cap}
+              className="px-3 py-1.5 text-[11px] tracking-[0.06em] lowercase text-hu-text-muted border border-hu-border bg-hu-black/50 group-hover:border-hu-border-light group-hover:text-hu-text-secondary transition-colors duration-300"
+            >
+              {cap}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* CTA */}
       <a
         href="#contact"
-        className="inline-flex items-center gap-2 text-hu-accent text-sm tracking-[0.05em] group-hover:gap-3 transition-all duration-300"
+        className="inline-flex items-center gap-2 text-hu-accent text-sm tracking-[0.05em] group-hover:gap-3 transition-all duration-300 pt-4 border-t border-hu-border/40"
       >
         {cta}
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -108,68 +119,71 @@ function SystemCard({
 
 const systems = [
   {
-    number: "01",
-    title: "CRYPTO & DECENTRALIZED RAILS",
+    number: "01 — PROPRIETARY SOFTWARE",
+    title: "PROPRIETARY SOFTWARE",
     description:
-      "Architect and deploy high-frequency crypto payment gateways, cross-border settlement rails, smart contract protocols, and institutional self-custody systems.",
+      "Custom software, internal tools, and operational platforms engineered around your business logic.",
     capabilities: [
-      "Crypto Settlement Rails",
-      "Smart Contracts",
-      "DeFi Architecture",
-      "Payment Gateways",
-      "Algorithmic Execution",
-      "Multi-Chain Routing",
-      "On-Chain Analytics",
-      "Custody Integration",
+      "operational platforms",
+      "enterprise portals",
+      "workflow systems",
+      "dashboards",
+      "internal tools",
+      "cloud APIs",
+      "native applications",
+      "system integrations",
     ],
-    cta: "Explore Crypto Systems →",
+    cta: "Initiate Systems Audit →",
   },
   {
-    number: "02",
-    title: "BESPOKE ENTERPRISE SOFTWARE",
+    number: "02 — AUTONOMOUS AI SYSTEMS",
+    title: "AUTONOMOUS AI SYSTEMS",
     description:
-      "Replace off-the-shelf software and manual bottlenecks with custom operational platforms, native mobile applications (iOS/Android), and high-throughput backend systems.",
+      "AI systems that operate inside real business workflows—not isolated chat interfaces.",
     capabilities: [
-      "Custom Operations CRMs",
-      "Native Mobile Apps (iOS/Android)",
-      "Internal ERP Platforms",
-      "Client Intake Portals",
-      "High-Throughput APIs",
-      "Database Architecture",
-      "Cloud Infrastructure",
-      "Real-Time Dashboards",
-    ],
-    cta: "Explore Enterprise Software →",
-  },
-  {
-    number: "03",
-    title: "AUTONOMOUS AI OPERATING SYSTEMS",
-    description:
-      "Deploy 24/7 autonomous intelligence agents and self-executing workflows that handle client triage, scheduling, qualification, and high-complexity business operations.",
-    capabilities: [
-      "Autonomous AI Agents",
-      "Speed-to-Lead Triage",
-      "Workflow Orchestration",
-      "Document Intelligence",
-      "Decision Automation",
-      "Conversational AI",
-      "Zero-Human Drag",
+      "autonomous agents",
+      "AI operations",
+      "intelligent intake",
+      "customer triage",
+      "document intelligence",
+      "decision workflows",
+      "automated research",
+      "internal copilots",
+      "AI orchestration",
     ],
     cta: "Explore AI Systems →",
   },
   {
-    number: "04",
-    title: "HIGH-YIELD REVENUE INFRASTRUCTURE",
+    number: "03 — CRYPTO & FINANCIAL SYSTEMS",
+    title: "CRYPTO & FINANCIAL SYSTEMS",
     description:
-      "Design high-ticket client intake, conversion telemetry, automated proposal desks, and bespoke checkout architecture built to maximize transaction yield.",
+      "Software infrastructure for digital assets, settlement, treasury and programmable financial operations.",
+    disclaimer: "Software Infrastructure Only",
     capabilities: [
-      "High-Ticket Funnels",
-      "Intake Automation",
-      "Conversion Telemetry",
-      "Proposal Desks",
-      "Revenue Diagnostics",
-      "Payment Orchestration",
-      "Client Onboarding Rails",
+      "smart contracts",
+      "treasury systems",
+      "multi-chain infrastructure",
+      "settlement rails",
+      "custody workflows",
+      "financial dashboards",
+      "automated transactions",
+      "blockchain integrations",
+    ],
+    cta: "Explore Financial Systems →",
+  },
+  {
+    number: "04 — REVENUE & OPERATING INFRASTRUCTURE",
+    title: "REVENUE & OPERATING INFRASTRUCTURE",
+    description:
+      "Systems that connect customer acquisition, conversion, operations and measurable business outcomes.",
+    capabilities: [
+      "intelligent intake",
+      "conversion infrastructure",
+      "customer portals",
+      "revenue workflows",
+      "operational telemetry",
+      "automated follow-up",
+      "business intelligence",
     ],
     cta: "Explore Revenue Systems →",
   },
@@ -182,7 +196,7 @@ export default function WhatWeBuild() {
     <section
       ref={sectionRef}
       id="systems"
-      className="relative py-32 md:py-44 bg-hu-darker"
+      className="relative py-32 md:py-44 bg-hu-darker scroll-mt-10"
     >
       {/* Noise overlay */}
       <div className="noise-overlay absolute inset-0 pointer-events-none" />
@@ -199,7 +213,7 @@ export default function WhatWeBuild() {
           >
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
-              What We Build
+              Core Disciplines
             </span>
           </div>
 
@@ -210,9 +224,9 @@ export default function WhatWeBuild() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            HIGH-DEMAND DIGITAL SYSTEMS,
+            PROPRIETARY SYSTEMS,
             <br />
-            <span className="text-hu-text-secondary">ENGINEERED FOR SUPREMACY.</span>
+            <span className="text-hu-text-secondary">ENGINEERED FOR COMPLEX OPERATIONS.</span>
           </h2>
         </div>
 

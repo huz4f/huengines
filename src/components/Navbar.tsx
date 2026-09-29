@@ -5,11 +5,12 @@ import Link from "next/link";
 import HuLogo from "./HuLogo";
 
 const navLinks = [
-  { label: "What We Build", href: "/#systems" },
-  { label: "Crypto & Software", href: "/#systems" },
-  { label: "Deployments", href: "/#case-studies" },
-  { label: "Outcomes", href: "/#outcomes" },
-  { label: "Partnership", href: "/#who-we-work-with" },
+  { label: "Systems", href: "/#systems" },
+  { label: "Missing Layer", href: "/#thesis" },
+  { label: "Method", href: "/#method" },
+  { label: "Technical Depth", href: "/#technical-depth" },
+  { label: "Selected Systems", href: "/#deployments" },
+  { label: "Engagement", href: "/#engagement" },
 ];
 
 export default function Navbar() {
@@ -49,12 +50,12 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-hu-text-secondary text-[13px] tracking-[0.08em] uppercase hover:text-hu-white transition-colors duration-300"
+                className="text-hu-text-secondary text-[12px] tracking-[0.08em] uppercase hover:text-hu-white transition-colors duration-300"
               >
                 {link.label}
               </a>
@@ -62,11 +63,11 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <a
+          <Link
             href="/#contact"
-            className="hidden md:flex items-center gap-2 text-[13px] tracking-[0.08em] uppercase text-hu-accent hover:text-hu-white transition-colors duration-300"
+            className="hidden md:flex items-center gap-2 text-[12px] tracking-[0.08em] uppercase text-hu-accent hover:text-hu-white transition-colors duration-300 font-medium"
           >
-            Request Systems Audit
+            Initiate Systems Audit
             <svg
               width="12"
               height="12"
@@ -80,7 +81,7 @@ export default function Navbar() {
                 strokeWidth="1.5"
               />
             </svg>
-          </a>
+          </Link>
 
           {/* Mobile Toggle */}
           <button
@@ -130,7 +131,7 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
-        <a
+        <Link
           href="/#contact"
           onClick={() => setMobileOpen(false)}
           className="mt-8 px-8 py-3 border border-hu-accent text-hu-accent text-sm tracking-[0.15em] uppercase hover:bg-hu-accent hover:text-hu-black transition-all duration-300"
@@ -142,8 +143,8 @@ export default function Navbar() {
               "opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease, color 0.3s ease",
           }}
         >
-          Request Systems Audit
-        </a>
+          Initiate Systems Audit
+        </Link>
       </div>
     </>
   );

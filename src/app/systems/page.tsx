@@ -11,27 +11,27 @@ export const metadata: Metadata = {
 const systems = [
   {
     number: "01",
-    title: "CRYPTO & DECENTRALIZED RAILS",
+    title: "PROPRIETARY SOFTWARE",
     href: "/#systems",
-    description: "Institutional smart contracts, multi-chain settlement rails, non-custodial treasury vaults, and automated execution engines.",
+    description: "Custom software, internal tools, and operational platforms engineered around your business logic.",
   },
   {
     number: "02",
-    title: "BESPOKE ENTERPRISE SOFTWARE",
+    title: "AUTONOMOUS AI SYSTEMS",
     href: "/#systems",
-    description: "Purpose-built operational operating systems, high-concurrency cloud APIs, and specialized portals eliminating SaaS lock-in.",
+    description: "AI systems that operate inside real business workflows—not isolated chat interfaces.",
   },
   {
     number: "03",
-    title: "AUTONOMOUS AI OPERATING SYSTEMS",
+    title: "CRYPTO & FINANCIAL SYSTEMS",
     href: "/#systems",
-    description: "Deterministic autonomous agents, real-time client triage, and intelligent workflow orchestration operating 24/7.",
+    description: "Software infrastructure for digital assets, settlement, treasury and programmable financial operations.",
   },
   {
     number: "04",
-    title: "HIGH-YIELD REVENUE INFRASTRUCTURE",
+    title: "REVENUE & OPERATING INFRASTRUCTURE",
     href: "/#systems",
-    description: "High-ticket intake architecture, conversion telemetry, and automated pipeline infrastructure designed for compounding scale.",
+    description: "Systems that connect customer acquisition, conversion, operations and measurable business outcomes.",
   },
 ];
 
