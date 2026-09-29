@@ -55,7 +55,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className={`text-[clamp(2.4rem,5vw,4.8rem)] font-medium leading-[1.08] tracking-[-0.03em] text-hu-white mb-8 max-w-[840px] transition-all duration-1000 delay-200 ${
+              className={`text-[clamp(1.95rem,3.2vw,3.25rem)] font-medium leading-[1.14] tracking-[-0.025em] text-hu-white mb-6 max-w-[720px] transition-all duration-1000 delay-200 ${
                 loaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
@@ -70,7 +70,7 @@ export default function Hero() {
 
             {/* Subheadline */}
             <p
-              className={`text-hu-text-secondary text-lg md:text-xl leading-relaxed max-w-[620px] mb-10 transition-all duration-1000 delay-400 ${
+              className={`text-hu-text-secondary text-base md:text-lg leading-relaxed max-w-[580px] mb-9 transition-all duration-1000 delay-400 ${
                 loaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
