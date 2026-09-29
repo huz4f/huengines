@@ -5,7 +5,8 @@ export const SITE_CONFIG = {
   name: "HU Engines",
   domain: "huengines.com",
   url: "https://huengines.com",
-  salesEmail: "sales@huengines.com",
+  salesEmail: "inquiry@huengines.com",
+  inquiryEmail: "inquiry@huengines.com",
   backupEmail: "ihuz4f@gmail.com",
 
   // Google Apps Script Web App Endpoint URL

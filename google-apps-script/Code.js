@@ -6,7 +6,7 @@
  * Functions:
  * 1. doPost(e): Ingests inbound client briefs from huengines.com/contact
  * 2. Appends lead to Google Sheet ("Inbound Leads")
- * 3. Sends luxury executive brief email with logo to sales@huengines.com & ihuz4f@gmail.com
+ * 3. Sends luxury executive brief email with logo to inquiry@huengines.com & ihuz4f@gmail.com
  * 4. Sends professional confirmation email with logo to the prospective client
  * 5. Returns JSON response to client
  * =========================================================================
@@ -14,7 +14,7 @@
 
 // Core Configuration
 var CONFIG = {
-  NOTIFICATION_RECIPIENTS: "sales@huengines.com, ihuz4f@gmail.com",
+  NOTIFICATION_RECIPIENTS: "inquiry@huengines.com, ihuz4f@gmail.com",
   BRAND_NAME: "HU Engines",
   BRAND_URL: "https://huengines.com",
   LOGO_URL: "https://huengines.com/hu-mark-gold.png",
@@ -437,12 +437,12 @@ function sendClientConfirmationEmail(lead) {
     '',
     'Respectfully,',
     'Principal Systems Architecture',
-    'HU Engines | sales@huengines.com | huengines.com'
+    'HU Engines | inquiry@huengines.com | huengines.com'
   ].join('\n');
 
   MailApp.sendEmail({
     to: lead.email,
-    replyTo: "sales@huengines.com",
+    replyTo: "inquiry@huengines.com",
     subject: subject,
     body: plainText,
     htmlBody: html,

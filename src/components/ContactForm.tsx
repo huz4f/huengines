@@ -157,7 +157,7 @@ export default function ContactForm() {
     // 2. Fallback Gateway if custom endpoint not configured or totally unreachable
     if (!delivered && !SITE_CONFIG.formEndpoint) {
       try {
-        const res = await fetch("https://formsubmit.co/ajax/sales@huengines.com", {
+        const res = await fetch("https://formsubmit.co/ajax/inquiry@huengines.com", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -289,10 +289,10 @@ export default function ContactForm() {
                 Direct Executive Channel
               </span>
               <a
-                href="mailto:sales@huengines.com"
+                href="mailto:inquiry@huengines.com"
                 className="text-hu-white hover:text-hu-accent text-sm tracking-wide font-mono transition-colors duration-300 inline-flex items-center gap-2"
               >
-                sales@huengines.com
+                inquiry@huengines.com
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path
                     d="M3 1h8v8M11 1L1 11"
@@ -568,7 +568,7 @@ export default function ContactForm() {
                       </p>
                       {(errorMsg.includes("mail client") || errorMsg.includes("email directly")) && (
                         <a
-                          href={`mailto:sales@huengines.com?cc=ihuz4f@gmail.com&subject=${encodeURIComponent(
+                          href={`mailto:inquiry@huengines.com?cc=ihuz4f@gmail.com&subject=${encodeURIComponent(
                             `⚡ [HU Engines] Client Brief: ${formData.company || "Project Inquiry"} (${formData.name || "Executive"})`
                           )}&body=${encodeURIComponent(
                             `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nWebsite: ${formData.website || "N/A"}\nFocus: ${selectedImprovements.join(", ")}\nScope: ${formData.scope || "N/A"}\nSuccess Criteria: ${formData.successCriteria || "N/A"}`
@@ -607,7 +607,7 @@ export default function ContactForm() {
                   </button>
 
                   <div className="flex items-center justify-between text-[11px] text-hu-text-muted tracking-wide pt-1">
-                    <span>Delivered to sales@huengines.com</span>
+                    <span>Delivered to inquiry@huengines.com</span>
                     <span>Response within 24–48h</span>
                   </div>
                 </div>

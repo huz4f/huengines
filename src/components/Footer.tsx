@@ -91,10 +91,10 @@ export default function Footer() {
               </Link>
               <div className="pt-2">
                 <a
-                  href="mailto:sales@huengines.com"
+                  href="mailto:inquiry@huengines.com"
                   className="text-hu-text-muted hover:text-hu-accent text-xs font-mono transition-colors duration-300 block"
                 >
-                  sales@huengines.com
+                  inquiry@huengines.com
                 </a>
               </div>
             </div>

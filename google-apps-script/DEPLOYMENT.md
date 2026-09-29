@@ -63,7 +63,7 @@ Then run `npm run deploy` (or `./deploy.sh`).
 ## 🏆 What Happens When a Client Submits a Brief?
 
 1. **Google Sheet Ingestion**: A new row is immediately appended to the **Inbound Leads** sheet with the timestamp, prospect name, email, company, website, revenue scope, systems focus, bottlenecks, and success criteria.
-2. **Executive Brief Email**: A bespoke, dark/gold luxury HTML email is dispatched to `sales@huengines.com` and `ihuz4f@gmail.com` with:
+2. **Executive Brief Email**: A bespoke, dark/gold luxury HTML email is dispatched to `inquiry@huengines.com` and `ihuz4f@gmail.com` with:
    - Full lead dossier
    - HU Engines gold logo
    - One-click `Reply to [Prospect Name]` button
