@@ -14,36 +14,36 @@ const stages: Stage[] = [
     number: "01",
     title: "AUDIT",
     description:
-      "Understand the existing infrastructure, workflows, bottlenecks and technical constraints.",
-    deliverable: "Systems Audit & Architecture Spec",
+      "Deconstruct existing infrastructure, workflow friction, margin leaks, and operational bottlenecks.",
+    deliverable: "Systems Audit & Architectural Thesis",
   },
   {
     number: "02",
     title: "ARCHITECT",
     description:
-      "Design the system, data model, integrations, security model and operating logic.",
-    deliverable: "Data Schema & Security Blueprint",
+      "Design proprietary data flows, security boundaries, autonomous logic, and integration topologies.",
+    deliverable: "Enterprise Architecture Blueprint",
   },
   {
     number: "03",
     title: "ENGINEER",
     description:
-      "Build the proprietary software, AI, APIs, interfaces and infrastructure.",
-    deliverable: "Production Codebase & Test Coverage",
+      "Build the bespoke software platforms, cognitive intelligence, and automated capital rails.",
+    deliverable: "Production Engine & Full IP Assignment",
   },
   {
     number: "04",
     title: "DEPLOY",
     description:
-      "Integrate with the existing environment and move the system into production.",
-    deliverable: "Zero-Downtime Staging & Production Cutover",
+      "Orchestrate seamless zero-downtime cutover into your live commercial operating environment.",
+    deliverable: "Production Cutover & Verification",
   },
   {
     number: "05",
     title: "COMPOUND",
     description:
-      "Measure, improve and extend the system as the business evolves.",
-    deliverable: "Telemetry Monitoring & Feature Evolution",
+      "Monitor operational telemetry, continuously optimize flow, and compound balance sheet value.",
+    deliverable: "Telemetry Monitoring & Scaling SLA",
   },
 ];
 

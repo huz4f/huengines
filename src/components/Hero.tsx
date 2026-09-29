@@ -49,7 +49,7 @@ export default function Hero() {
             >
               <div className="w-8 h-[1px] bg-hu-accent" />
               <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
-                Human Utility Engines
+                Human Utility Engines • Enterprise Sovereignty
               </span>
             </div>
 
@@ -70,13 +70,13 @@ export default function Hero() {
 
             {/* Subheadline */}
             <p
-              className={`text-hu-text-secondary text-base md:text-lg leading-relaxed max-w-[580px] mb-9 transition-all duration-1000 delay-400 ${
+              className={`text-hu-text-secondary text-base md:text-lg leading-relaxed max-w-[600px] mb-9 transition-all duration-1000 delay-400 ${
                 loaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We engineer bespoke platforms, deterministic operational AI, and programmable settlement rails—transforming complex enterprise workflows into permanent, client-owned assets.
+              We architect the proprietary operating engines behind high-growth market leaders—transforming operational entropy into autonomous execution, eliminating SaaS dependency, and forging permanent balance sheet assets that compound enterprise value.
             </p>
 
             {/* CTAs */}
@@ -123,10 +123,10 @@ export default function Hero() {
               }`}
             >
               {[
-                "01 Operating Systems",
-                "02 Autonomous AI",
-                "03 Settlement Rails",
-                "04 Revenue Infrastructure",
+                "01 Sovereign Platforms",
+                "02 Autonomous Labor",
+                "03 Capital Velocity",
+                "04 Revenue Engines",
               ].map((item, i, arr) => (
                 <span key={item} className="flex items-center gap-3">
                   <span className="text-hu-text-secondary font-mono text-[11px] tracking-wider">{item}</span>

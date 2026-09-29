@@ -11,40 +11,40 @@ interface ComparisonRow {
 
 const comparisons: ComparisonRow[] = [
   {
+    dimension: "Competitive Advantage",
+    offTheShelf: "Rented commodity templates",
+    bespoke: "Insurmountable enterprise moat",
+    detail: "Standard SaaS forces your company into identical interfaces used by competitors; proprietary infrastructure encodes your exact competitive advantage.",
+  },
+  {
+    dimension: "Operational Autonomy",
+    offTheShelf: "Vendor rate limits & black boxes",
+    bespoke: "Sovereign enterprise architecture",
+    detail: "Zero arbitrary API caps, vendor outages, or forced migration roadmaps. Your systems scale unconditionally with your transaction velocity.",
+  },
+  {
+    dimension: "Ecosystem Integrity",
+    offTheShelf: "Fragile tool sprawl & margin leaks",
+    bespoke: "Singular unified operating system",
+    detail: "Eliminates fragile Zapier glue and disconnected spreadsheets across departments, creating a synchronized corporate nervous system.",
+  },
+  {
+    dimension: "Capital Efficiency",
+    offTheShelf: "Perpetual recurring SaaS tax",
+    bespoke: "Permanent balance sheet asset",
+    detail: "Stop paying per-seat subscription penalties for scaling headcount. Build once, deploy on your own infrastructure, and compound EBITDA.",
+  },
+  {
     dimension: "Operational Flow",
-    offTheShelf: "Generic workflows",
-    bespoke: "Your workflows",
-    detail: "Standard software forces your team into pre-packaged menus; bespoke software mirrors your exact operational sequence.",
+    offTheShelf: "Rigid third-party constraints",
+    bespoke: "Engineered for your exact dominance",
+    detail: "Every interface, decision tree, database schema, and telemetry queue is tailored specifically around your business logic.",
   },
   {
-    dimension: "Technical Foundation",
-    offTheShelf: "Vendor constraints",
-    bespoke: "Your architecture",
-    detail: "No arbitrary rate limits, vendor API lock-ins, or unsupported data structures.",
-  },
-  {
-    dimension: "Ecosystem Structure",
-    offTheShelf: "Multiple disconnected tools",
-    bespoke: "Unified system",
-    detail: "Eliminates fragile Zapier glue and fragmented data silos across dozens of third-party dashboards.",
-  },
-  {
-    dimension: "Economic Model",
-    offTheShelf: "Subscription dependency",
-    bespoke: "Proprietary infrastructure",
-    detail: "Zero perpetual SaaS tax per seat. Build once, deploy on your own cloud, and amortize as a permanent balance sheet asset.",
-  },
-  {
-    dimension: "Adaptability",
-    offTheShelf: "Limited customization",
-    bespoke: "Designed around your operation",
-    detail: "Every interface, database field, API gateway, and automation rule engineered specifically for your business.",
-  },
-  {
-    dimension: "Strategic Control",
-    offTheShelf: "Vendor roadmap",
-    bespoke: "Your roadmap",
-    detail: "You decide when features evolve, what models to integrate, and how data is governed without waiting on third parties.",
+    dimension: "Enterprise Valuation",
+    offTheShelf: "Ephemeral operating expense",
+    bespoke: "Proprietary IP expansion",
+    detail: "100% client code and infrastructure ownership. Proprietary technology dramatically expands your enterprise valuation multiple upon capital events or exit.",
   },
 ];
 

@@ -18,42 +18,42 @@ const improvementOptions: SystemFocusOption[] = [
     code: "01",
     title: "Proprietary Operating Systems",
     value: "01 — Proprietary Operating Systems",
-    scope: "Legacy decoupling, custom ERP layers, and unified enterprise OS platforms.",
+    scope: "Bespoke enterprise command, legacy modernization, and unified operational defensibility.",
   },
   {
     id: "ai",
     code: "02",
     title: "Autonomous AI Systems",
     value: "02 — Autonomous AI Systems",
-    scope: "Deterministic operational labor, document intelligence, and decision workflows.",
+    scope: "Autonomous digital labor, intelligent document intake, and 24/7 self-executing operations.",
   },
   {
     id: "crypto",
     code: "03",
     title: "Settlement & Treasury Rails",
     value: "03 — Settlement & Treasury Rails",
-    scope: "Stablecoin payment rails, non-custodial escrow, and cross-border velocity.",
+    scope: "Sub-second liquidity rails, stablecoin settlement, and automated treasury routing.",
   },
   {
     id: "revenue",
     code: "04",
     title: "Algorithmic Revenue Infrastructure",
     value: "04 — Algorithmic Revenue Infrastructure",
-    scope: "Instant intake routing, automated enrichment, and dynamic booking engines.",
+    scope: "Zero-latency lead qualification, instant calendar routing, and pipeline velocity.",
   },
   {
     id: "audit",
     code: "05",
     title: "Systems Architecture Audit",
     value: "Systems Architecture Audit",
-    scope: "Diagnostic of existing technical debt, infrastructure bottlenecks, and ROI.",
+    scope: "Comprehensive diagnostic of operational debt, hidden margin leaks, and ROI thesis.",
   },
   {
     id: "custom",
     code: "06",
     title: "Other / Simple Services",
     value: "Other / Simple Services",
-    scope: "Custom API endpoints, database sync, automation scripts, and micro-tools.",
+    scope: "Custom API connectors, database sync, webhook automations, and specialized micro-tools.",
   },
 ];
 
@@ -295,9 +295,9 @@ export default function ContactForm() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We partner with organizations where mission-critical systems, institutional
-              trust, and predictable acquisition compound enterprise value. Submit your brief
-              and our principal engineering team will respond with a systems perspective—not a generic sales pitch.
+              We engineer exclusively for organizations where operational leverage, balance sheet defensibility,
+              and sovereign infrastructure compound valuation. Submit your brief to initiate an architectural diagnostic
+              with our principal engineering team.
             </p>
 
             <div
@@ -309,15 +309,15 @@ export default function ContactForm() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-hu-accent flex-shrink-0" />
-                <span>Bespoke systems tailored for serious enterprise &amp; high-growth operators</span>
+                <span>Bespoke systems engineered for market leaders &amp; institutional operators</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-hu-accent flex-shrink-0" />
-                <span>Confidential review by our principal engineering team</span>
+                <span>Confidential architectural review under strict NDA standards</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-hu-accent flex-shrink-0" />
-                <span>Direct response within 24 to 48 hours</span>
+                <span>Principal engineering diagnostic delivered within 24 to 48 hours</span>
               </div>
             </div>
 

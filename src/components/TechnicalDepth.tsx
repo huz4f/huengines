@@ -12,68 +12,73 @@ interface TechDomain {
 
 const domains: TechDomain[] = [
   {
-    id: "engineering",
-    category: "ENGINEERING",
-    description: "Type-safe, low-latency, and cross-platform core application stacks.",
+    id: "architecture",
+    category: "ENTERPRISE ARCHITECTURE",
+    description: "Proprietary, fault-tolerant platforms engineered for infinite scalability and institutional defensibility.",
     items: [
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Swift",
-      "Node.js",
-      "PostgreSQL",
-      "Prisma",
+      "Sub-second execution velocity",
+      "High-availability micro-architectures",
+      "Permanent intellectual property ownership",
+      "Zero third-party vendor dependency",
+      "Cross-platform unified operating layers",
+      "Custom enterprise ERP modernization",
+      "Audited cryptographic data schemas",
     ],
   },
   {
     id: "infrastructure",
-    category: "INFRASTRUCTURE",
-    description: "Distributed, event-driven backends built for high concurrency and resilience.",
+    category: "OPERATIONAL SCALE",
+    description: "Distributed, event-driven infrastructure engineered to process massive transaction volume with zero latency.",
     items: [
-      "Cloud architecture",
-      "APIs",
-      "distributed workflows",
-      "background processing",
-      "event-driven systems",
-      "databases",
-      "observability",
+      "Global distributed cloud topology",
+      "Zero-downtime automated failover",
+      "Asynchronous high-volume event streaming",
+      "Sub-100ms background queue processing",
+      "Real-time telemetry & predictive observability",
+      "Automated elastic resource allocation",
+      "Unbounded concurrent user capacity",
     ],
   },
   {
     id: "intelligence",
-    category: "INTELLIGENCE",
-    description: "Autonomous reasoning and workflow orchestration integrated into live operations.",
+    category: "AUTONOMOUS INTELLIGENCE",
+    description: "Deterministic cognitive operations and digital workforce engines embedded into live commercial execution.",
     items: [
-      "AI agents",
-      "LLM orchestration",
-      "retrieval systems",
-      "automation",
-      "structured decision workflows",
+      "Self-governing autonomous agents",
+      "Deterministic algorithmic decision trees",
+      "Private air-gapped LLM orchestration",
+      "Zero-latency unstructured document parsing",
+      "Predictive operational dispatching",
+      "Closed-loop feedback & self-optimization",
+      "Human-in-the-loop executive oversight",
     ],
   },
   {
     id: "security",
-    category: "SECURITY",
-    description: "Architectural defense, zero-trust permissions, and cryptographic integrity.",
+    category: "INSTITUTIONAL DEFENSE",
+    description: "Zero-trust architectural defense and cryptographic protection securing sovereign enterprise assets.",
     items: [
-      "authentication",
-      "authorization",
-      "encryption",
-      "secure APIs",
-      "identity",
-      "auditability",
+      "Zero-trust perimeter architecture",
+      "Bank-grade AES-256 / TLS 1.3 encryption",
+      "Granular least-privilege RBAC controls",
+      "Immutable tamper-proof audit trails",
+      "SOC2 & HIPAA compliant data isolation",
+      "Continuous threat detection & mitigation",
+      "Automated secrets lifecycle orchestration",
     ],
   },
   {
-    id: "blockchain",
-    category: "BLOCKCHAIN",
-    description: "Programmable financial software rails and multi-chain settlement protocols.",
+    id: "capital",
+    category: "CAPITAL VELOCITY",
+    description: "Programmable financial software rails engineered for sub-second settlement and global treasury velocity.",
     items: [
-      "smart contracts",
-      "multi-chain systems",
-      "digital asset infrastructure",
-      "settlement",
-      "treasury automation",
+      "Sub-12s settlement finality",
+      "Programmable multi-currency liquidity routing",
+      "Non-custodial smart contract escrow",
+      "Automated cross-border trade execution",
+      "Zero intermediary wire fee attrition",
+      "Real-time balance sheet reconciliation",
+      "Self-auditing cryptographic ledgers",
     ],
   },
 ];
@@ -107,7 +112,7 @@ export default function TechnicalDepth() {
           >
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
-              Technical Depth
+              Institutional Capability
             </span>
           </div>
 
@@ -118,9 +123,9 @@ export default function TechnicalDepth() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            UNDERLYING
+            THE ARCHITECTURE OF
             <br />
-            <span className="text-hu-text-secondary">SYSTEMS CAPABILITY.</span>
+            <span className="text-hu-text-secondary">ENTERPRISE DOMINANCE.</span>
           </h2>
 
           <p
@@ -130,9 +135,8 @@ export default function TechnicalDepth() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            We operate across the complete modern software surface. Rather than generic commodity templates,
-            our systems are engineered with deep technical rigor across data integrity, distributed event queues,
-            low-latency APIs, and cryptographic settlement.
+            True market leaders do not assemble their future from third-party commodities. We engineer every layer
+            of your proprietary operational stack for speed, defensibility, and perpetual compounding leverage.
           </p>
         </div>
 
