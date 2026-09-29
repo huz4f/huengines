@@ -58,26 +58,13 @@ export default function WhoWeWorkWith() {
             </h2>
 
             <p
-              className={`text-hu-text-secondary text-base leading-relaxed mb-6 transition-all duration-700 delay-300 ${
+              className={`text-hu-text-secondary text-base leading-relaxed mb-8 transition-all duration-700 delay-300 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We do not work with everyone. We deliberately restrict our engineering engagements
-              to organizations where operational bottlenecks create severe financial friction and off-the-shelf
-              tools have reached their architectural ceiling.
-            </p>
-
-            <p
-              className={`text-hu-text-muted text-sm leading-relaxed transition-all duration-700 delay-400 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
-              Whether handling mission-critical data flows, high-concurrency transactions, or multi-step
-              autonomous triage, our systems are built for operators where execution and reliability are non-negotiable.
+              We deliberately restrict engagements to organizations where operational friction creates measurable financial decay and off-the-shelf software has hit its architectural ceiling. If standard SaaS solves your problem, you do not need us.
             </p>
           </div>
 

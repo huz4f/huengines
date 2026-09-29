@@ -224,9 +224,9 @@ export default function WhatWeBuild() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            PROPRIETARY SYSTEMS,
+            CORE DISCIPLINES.
             <br />
-            <span className="text-hu-text-secondary">ENGINEERED FOR COMPLEX OPERATIONS.</span>
+            <span className="text-hu-text-secondary">PURPOSE-BUILT INFRASTRUCTURE.</span>
           </h2>
         </div>
 

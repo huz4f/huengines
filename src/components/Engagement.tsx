@@ -118,40 +118,21 @@ export default function Engagement() {
           ))}
         </div>
 
-        {/* CTA Banner */}
+        {/* Phase 01 Transition */}
         <div
-          className={`border border-hu-border bg-hu-card/40 p-8 md:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 transition-all duration-1000 delay-600 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`border-t border-hu-border/60 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-700 delay-600 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <div>
-            <h3 className="text-hu-white text-lg md:text-xl font-medium mb-1">
-              Ready to examine what can be engineered?
-            </h3>
-            <p className="text-hu-text-muted text-xs md:text-sm font-mono">
-              Direct review by our principal engineering team. Response in 24–48 hours.
-            </p>
+          <div className="flex items-center gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-hu-accent" />
+            <span className="text-hu-text-muted text-xs font-mono tracking-wider">
+              Engagement begins below with Milestone 01: Systems &amp; Architecture Audit.
+            </span>
           </div>
-
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-hu-accent text-hu-black text-sm font-medium tracking-[0.1em] uppercase hover:bg-hu-white transition-all duration-300 whitespace-nowrap shadow-[0_0_20px_rgba(200,164,110,0.15)]"
-          >
-            INITIATE A SYSTEMS AUDIT
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="group-hover:translate-x-1 transition-transform duration-300"
-            >
-              <path
-                d="M1 7h12M8 2l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-            </svg>
-          </a>
+          <span className="text-hu-accent font-mono text-xs tracking-wider flex items-center gap-1.5">
+            Audit Brief ↓
+          </span>
         </div>
       </div>
     </section>

@@ -70,13 +70,13 @@ export default function Hero() {
 
             {/* Subheadline */}
             <p
-              className={`text-hu-text-secondary text-lg md:text-xl leading-relaxed max-w-[640px] mb-10 transition-all duration-1000 delay-400 ${
+              className={`text-hu-text-secondary text-lg md:text-xl leading-relaxed max-w-[620px] mb-10 transition-all duration-1000 delay-400 ${
                 loaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We engineer proprietary systems for high-complexity operations—unifying mission-critical software, autonomous AI workflows, programmable settlement rails, and high-velocity revenue infrastructure into permanent, client-owned enterprise assets.
+              We engineer bespoke platforms, deterministic operational AI, and programmable settlement rails—transforming complex enterprise workflows into permanent, client-owned assets.
             </p>
 
             {/* CTAs */}
@@ -123,13 +123,13 @@ export default function Hero() {
               }`}
             >
               {[
-                "Proprietary Operating Systems",
-                "Autonomous AI Systems",
-                "Settlement & Treasury Rails",
-                "Revenue Infrastructure",
+                "01 Operating Systems",
+                "02 Autonomous AI",
+                "03 Settlement Rails",
+                "04 Revenue Infrastructure",
               ].map((item, i, arr) => (
                 <span key={item} className="flex items-center gap-3">
-                  <span className="text-hu-text-secondary font-medium">{item}</span>
+                  <span className="text-hu-text-secondary font-mono text-[11px] tracking-wider">{item}</span>
                   {i < arr.length - 1 && (
                     <span className="w-1 h-1 rounded-full bg-hu-accent/50" />
                   )}

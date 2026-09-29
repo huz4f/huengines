@@ -8,7 +8,6 @@ import TechnicalDepth from "@/components/TechnicalDepth";
 import CaseStudies from "@/components/CaseStudies";
 import WhoWeWorkWith from "@/components/WhoWeWorkWith";
 import OwnershipAndSecurity from "@/components/OwnershipAndSecurity";
-import Philosophy from "@/components/Philosophy";
 import Engagement from "@/components/Engagement";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
@@ -45,13 +44,10 @@ export default function Home() {
         {/* 9. Sections 13 & 14: Ownership/IP & Defensive Security Architecture */}
         <OwnershipAndSecurity />
 
-        {/* 10. Philosophy Manifesto */}
-        <Philosophy />
-
-        {/* 11. Section 15: Commercial Engagement (Start With The System) */}
+        {/* 10. Section 15: Commercial Engagement (Start With The System) */}
         <Engagement />
 
-        {/* 12. Systems Audit Brief Form */}
+        {/* 11. Systems Audit Brief Form */}
         <ContactForm />
       </main>
       <Footer />
