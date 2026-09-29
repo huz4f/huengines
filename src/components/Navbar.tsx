@@ -5,8 +5,8 @@ import Link from "next/link";
 import HuLogo from "./HuLogo";
 
 const navLinks = [
+  { label: "The Missing Layer", href: "/#thesis" },
   { label: "Systems", href: "/#systems" },
-  { label: "Missing Layer", href: "/#thesis" },
   { label: "Method", href: "/#method" },
   { label: "Technical Depth", href: "/#technical-depth" },
   { label: "Selected Systems", href: "/#deployments" },

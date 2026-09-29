@@ -21,11 +21,11 @@ export default function Home() {
         {/* 1. Hero */}
         <Hero />
 
-        {/* 2. Core Disciplines / What We Build (01-04) */}
-        <WhatWeBuild />
-
-        {/* 3. Section 6: When The System You Need Doesn't Exist (Visual Transition) */}
+        {/* 2. The Missing Layer & Systems Web Architecture (Section 6) */}
         <Thesis />
+
+        {/* 3. Core Disciplines / What We Build (01-04) */}
+        <WhatWeBuild />
 
         {/* 4. Section 12: Bespoke vs Off-The-Shelf */}
         <BespokeComparison />

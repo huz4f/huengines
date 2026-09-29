@@ -8,9 +8,9 @@ const improvementOptions = [
   { id: "proprietary", label: "01 — Proprietary Software" },
   { id: "ai", label: "02 — Autonomous AI Systems" },
   { id: "crypto", label: "03 — Crypto & Financial Systems" },
-  { id: "revenue", label: "04 — Revenue & Operating Infrastructure" },
+  { id: "revenue", label: "04 — Revenue Infrastructure" },
   { id: "audit", label: "Systems Architecture Audit" },
-  { id: "security", label: "Defensive Security & Hardening" },
+  { id: "custom", label: "Other / Simple Services" },
 ];
 
 export default function ContactForm() {
@@ -24,6 +24,7 @@ export default function ContactForm() {
     scope: "",
     successCriteria: "",
   });
+  const [customService, setCustomService] = useState("");
   const [selectedImprovements, setSelectedImprovements] = useState<string[]>([
     "01 — Proprietary Software",
     "02 — Autonomous AI Systems",
@@ -88,16 +89,22 @@ export default function ContactForm() {
 
     setSubmitting(true);
 
-    const coreFocus = selectedImprovements.join(", ");
+    const focusList = [...selectedImprovements];
+    if (
+      selectedImprovements.includes("Other / Simple Services") &&
+      customService.trim()
+    ) {
+      focusList.push(`Custom Detail: ${customService.trim()}`);
+    }
+    const coreFocus = focusList.join(", ");
 
     const payload = {
       name: cleanName,
       email: cleanEmail,
       company: cleanCompany,
       website: cleanWebsite || "Not provided",
-      system_scale: formData.revenue || "Not specified",
-      revenue: formData.revenue || "Not specified",
       core_systems_focus: coreFocus,
+      custom_service_request: customService.trim() || "None specified",
       improvements: selectedImprovements,
       scope_of_work: formData.scope.trim() || "Not specified",
       scope: formData.scope.trim() || "Not specified",
@@ -192,9 +199,10 @@ export default function ContactForm() {
       scope: "",
       successCriteria: "",
     });
+    setCustomService("");
     setSelectedImprovements([
-      "Crypto & Web3 Systems",
-      "Bespoke Enterprise Software",
+      "01 — Proprietary Software",
+      "02 — Autonomous AI Systems",
     ]);
     setSubmitted(false);
   };
@@ -501,80 +509,53 @@ export default function ContactForm() {
                         );
                       })}
                     </div>
-                  </div>
 
-                  {/* Project Scope / Engagement Scale */}
-                  <div>
-                    <label className="block text-hu-text-muted text-[11px] tracking-[0.15em] uppercase mb-2">
-                      Engagement Scope &amp; System Scale
-                    </label>
-                    <div className="relative">
-                      <select
-                        name="revenue"
-                        value={formData.revenue}
-                        onChange={handleInputChange}
-                        className="w-full bg-hu-black/60 border border-hu-border text-hu-text text-sm px-4 py-3 appearance-none transition-colors duration-300 cursor-pointer focus:outline-none focus:border-hu-accent pr-10"
-                      >
-                        <option value="" className="bg-hu-darker text-hu-text-muted">
-                          Select engagement tier
-                        </option>
-                        <option value="proprietary-software" className="bg-hu-darker text-hu-text">
-                          01 — Proprietary Software &amp; Operational Platform
-                        </option>
-                        <option value="autonomous-ai" className="bg-hu-darker text-hu-text">
-                          02 — Autonomous AI Operating System &amp; Workflows
-                        </option>
-                        <option value="crypto-financial" className="bg-hu-darker text-hu-text">
-                          03 — Crypto &amp; Financial Infrastructure Rails
-                        </option>
-                        <option value="revenue-infra" className="bg-hu-darker text-hu-text">
-                          04 — Revenue &amp; Operating Infrastructure
-                        </option>
-                        <option value="enterprise-transformation" className="bg-hu-darker text-hu-text">
-                          Full Enterprise Systems Transformation &amp; Retainer
-                        </option>
-                      </select>
-                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-hu-text-muted">
-                        <svg
-                          width="10"
-                          height="6"
-                          viewBox="0 0 10 6"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        >
-                          <path d="M1 1l4 4 4-4" />
-                        </svg>
+                    {/* Fill in blank for custom or simple services */}
+                    {selectedImprovements.includes("Other / Simple Services") && (
+                      <div className="mt-3.5 p-4 border border-hu-accent/40 bg-hu-black/80 animate-fade-in shadow-[0_0_20px_rgba(200,164,110,0.08)]">
+                        <label className="block text-hu-accent text-[11px] tracking-[0.15em] uppercase mb-2 font-mono">
+                          Describe the Service or Custom Requirement{" "}
+                          <span className="text-hu-text-muted lowercase font-normal">
+                            (simple task, specific integration, or internal tool)
+                          </span>
+                        </label>
+                        <input
+                          type="text"
+                          value={customService}
+                          onChange={(e) => setCustomService(e.target.value)}
+                          placeholder="e.g. Custom API endpoint, database migration, automation script, or internal portal"
+                          className="w-full bg-hu-darker border border-hu-border text-hu-text text-sm px-4 py-3 placeholder:text-hu-text-muted/40 focus:outline-none focus:border-hu-accent transition-colors duration-300"
+                        />
                       </div>
-                    </div>
+                    )}
                   </div>
 
-                  {/* Current Bottleneck */}
+                  {/* Project Details */}
                   <div>
                     <label className="block text-hu-text-muted text-[11px] tracking-[0.15em] uppercase mb-2">
-                      Current Engineering Challenge or System Friction
+                      Project Details &amp; Operational Context
                     </label>
                     <textarea
                       name="scope"
                       rows={3}
                       value={formData.scope}
                       onChange={handleInputChange}
-                      placeholder="e.g. Need a custom crypto settlement rail, high-throughput backend, AI customer triage, or replacing fragmented legacy software"
+                      placeholder="Tell us what you're building, replacing, or automating — or describe the custom service your team needs."
                       className="w-full bg-hu-black/60 border border-hu-border text-hu-text text-sm px-4 py-3 placeholder:text-hu-text-muted/40 resize-none focus:outline-none focus:border-hu-accent transition-colors duration-300"
                     />
                   </div>
 
-                  {/* Desired Success */}
+                  {/* Target Milestones */}
                   <div>
                     <label className="block text-hu-text-muted text-[11px] tracking-[0.15em] uppercase mb-2">
-                      What does success look like?
+                      Key Objectives or Target Milestones
                     </label>
                     <textarea
                       name="successCriteria"
                       rows={2}
                       value={formData.successCriteria}
                       onChange={handleInputChange}
-                      placeholder="e.g. Sub-second transaction settlement, 24/7 automated workflows, or 100% custom IP ownership"
+                      placeholder="e.g. Sub-second performance, 24/7 automated workflows, full source code ownership, or completion within 4-6 weeks"
                       className="w-full bg-hu-black/60 border border-hu-border text-hu-text text-sm px-4 py-3 placeholder:text-hu-text-muted/40 resize-none focus:outline-none focus:border-hu-accent transition-colors duration-300"
                     />
                   </div>
