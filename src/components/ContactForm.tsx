@@ -4,13 +4,57 @@ import { useReveal } from "@/hooks/useReveal";
 import { useState } from "react";
 import { SITE_CONFIG } from "@/config/site";
 
-const improvementOptions = [
-  { id: "proprietary", label: "01 — Proprietary Operating Systems" },
-  { id: "ai", label: "02 — Autonomous AI Systems" },
-  { id: "crypto", label: "03 — Settlement & Treasury Rails" },
-  { id: "revenue", label: "04 — Algorithmic Revenue Infrastructure" },
-  { id: "audit", label: "Systems Architecture Audit" },
-  { id: "custom", label: "Other / Simple Services" },
+interface SystemFocusOption {
+  id: string;
+  code: string;
+  title: string;
+  value: string;
+  scope: string;
+}
+
+const improvementOptions: SystemFocusOption[] = [
+  {
+    id: "proprietary",
+    code: "01",
+    title: "Proprietary Operating Systems",
+    value: "01 — Proprietary Operating Systems",
+    scope: "Legacy decoupling, custom ERP layers, and unified enterprise OS platforms.",
+  },
+  {
+    id: "ai",
+    code: "02",
+    title: "Autonomous AI Systems",
+    value: "02 — Autonomous AI Systems",
+    scope: "Deterministic operational labor, document intelligence, and decision workflows.",
+  },
+  {
+    id: "crypto",
+    code: "03",
+    title: "Settlement & Treasury Rails",
+    value: "03 — Settlement & Treasury Rails",
+    scope: "Stablecoin payment rails, non-custodial escrow, and cross-border velocity.",
+  },
+  {
+    id: "revenue",
+    code: "04",
+    title: "Algorithmic Revenue Infrastructure",
+    value: "04 — Algorithmic Revenue Infrastructure",
+    scope: "Instant intake routing, automated enrichment, and dynamic booking engines.",
+  },
+  {
+    id: "audit",
+    code: "05",
+    title: "Systems Architecture Audit",
+    value: "Systems Architecture Audit",
+    scope: "Diagnostic of existing technical debt, infrastructure bottlenecks, and ROI.",
+  },
+  {
+    id: "custom",
+    code: "06",
+    title: "Other / Simple Services",
+    value: "Other / Simple Services",
+    scope: "Custom API endpoints, database sync, automation scripts, and micro-tools.",
+  },
 ];
 
 export default function ContactForm() {
@@ -201,7 +245,7 @@ export default function ContactForm() {
     });
     setCustomService("");
     setSelectedImprovements([
-      "01 — Proprietary Software",
+      "01 — Proprietary Operating Systems",
       "02 — Autonomous AI Systems",
     ]);
     setSubmitted(false);
@@ -463,47 +507,73 @@ export default function ContactForm() {
                       )}
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {improvementOptions.map((option) => {
                         const isSelected = selectedImprovements.includes(
-                          option.label
+                          option.value
                         );
                         return (
                           <button
                             key={option.id}
                             type="button"
-                            onClick={() => toggleImprovement(option.label)}
-                            className={`group flex items-center justify-between px-3.5 py-3 text-xs tracking-[0.04em] uppercase border transition-all duration-300 text-left cursor-pointer ${
+                            onClick={() => toggleImprovement(option.value)}
+                            className={`group relative p-4 text-left border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
                               isSelected
-                                ? "border-hu-accent bg-hu-accent-dim text-hu-accent font-medium shadow-[0_0_15px_rgba(200,164,110,0.12)]"
-                                : "border-hu-border bg-hu-black/40 text-hu-text-muted hover:border-hu-border-light hover:text-hu-text-secondary"
+                                ? "border-hu-accent bg-hu-accent-dim text-hu-white shadow-[0_0_20px_rgba(200,164,110,0.14)]"
+                                : "border-hu-border bg-hu-black/50 text-hu-text-muted hover:border-hu-border-light hover:bg-hu-card/30"
                             }`}
                             aria-pressed={isSelected}
                           >
-                            <span className="truncate mr-2">{option.label}</span>
-                            <div
-                              className={`w-4 h-4 border flex items-center justify-center flex-shrink-0 transition-colors ${
-                                isSelected
-                                  ? "border-hu-accent bg-hu-accent text-hu-black"
-                                  : "border-hu-border group-hover:border-hu-border-light"
-                              }`}
-                            >
-                              {isSelected && (
-                                <svg
-                                  width="10"
-                                  height="10"
-                                  viewBox="0 0 12 12"
-                                  fill="none"
+                            <div>
+                              <div className="flex items-center justify-between mb-2">
+                                <span
+                                  className={`font-mono text-[10px] tracking-widest uppercase transition-colors ${
+                                    isSelected
+                                      ? "text-hu-accent font-semibold"
+                                      : "text-hu-text-muted/80"
+                                  }`}
                                 >
-                                  <path
-                                    d="M2 6l3 3 5-5"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              )}
+                                  SPEC / {option.code}
+                                </span>
+                                <div
+                                  className={`w-4 h-4 border flex items-center justify-center flex-shrink-0 transition-all ${
+                                    isSelected
+                                      ? "border-hu-accent bg-hu-accent text-hu-black"
+                                      : "border-hu-border group-hover:border-hu-border-light"
+                                  }`}
+                                >
+                                  {isSelected && (
+                                    <svg
+                                      width="10"
+                                      height="10"
+                                      viewBox="0 0 12 12"
+                                      fill="none"
+                                    >
+                                      <path
+                                        d="M2 6l3 3 5-5"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  )}
+                                </div>
+                              </div>
+
+                              <div
+                                className={`text-sm font-medium tracking-tight mb-1.5 transition-colors ${
+                                  isSelected
+                                    ? "text-hu-white"
+                                    : "text-hu-text-secondary group-hover:text-hu-white"
+                                }`}
+                              >
+                                {option.title}
+                              </div>
+
+                              <p className="text-[11px] leading-relaxed text-hu-text-muted">
+                                {option.scope}
+                              </p>
                             </div>
                           </button>
                         );
