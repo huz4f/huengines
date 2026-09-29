@@ -76,7 +76,7 @@ export default function Hero() {
                   : "opacity-0 translate-y-6"
               }`}
             >
-              We engineer proprietary systems for high-complexity operations—unifying custom software, autonomous AI workflows, digital asset rails, and revenue infrastructure into permanent, client-owned enterprise assets.
+              We engineer proprietary systems for high-complexity operations—unifying mission-critical software, autonomous AI workflows, programmable settlement rails, and high-velocity revenue infrastructure into permanent, client-owned enterprise assets.
             </p>
 
             {/* CTAs */}
@@ -123,9 +123,9 @@ export default function Hero() {
               }`}
             >
               {[
-                "Proprietary Software",
+                "Proprietary Operating Systems",
                 "Autonomous AI Systems",
-                "Crypto & Financial Systems",
+                "Settlement & Treasury Rails",
                 "Revenue Infrastructure",
               ].map((item, i, arr) => (
                 <span key={item} className="flex items-center gap-3">

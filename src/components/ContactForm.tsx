@@ -5,10 +5,10 @@ import { useState } from "react";
 import { SITE_CONFIG } from "@/config/site";
 
 const improvementOptions = [
-  { id: "proprietary", label: "01 — Proprietary Software" },
+  { id: "proprietary", label: "01 — Proprietary Operating Systems" },
   { id: "ai", label: "02 — Autonomous AI Systems" },
-  { id: "crypto", label: "03 — Crypto & Financial Systems" },
-  { id: "revenue", label: "04 — Revenue Infrastructure" },
+  { id: "crypto", label: "03 — Settlement & Treasury Rails" },
+  { id: "revenue", label: "04 — Algorithmic Revenue Infrastructure" },
   { id: "audit", label: "Systems Architecture Audit" },
   { id: "custom", label: "Other / Simple Services" },
 ];
@@ -26,7 +26,7 @@ export default function ContactForm() {
   });
   const [customService, setCustomService] = useState("");
   const [selectedImprovements, setSelectedImprovements] = useState<string[]>([
-    "01 — Proprietary Software",
+    "01 — Proprietary Operating Systems",
     "02 — Autonomous AI Systems",
   ]);
   const [submitted, setSubmitted] = useState(false);

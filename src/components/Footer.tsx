@@ -2,10 +2,10 @@ import Link from "next/link";
 import HuLogo from "./HuLogo";
 
 const footerSystems = [
-  { label: "01 — Proprietary Software", href: "/#systems" },
+  { label: "01 — Proprietary Operating Systems", href: "/#systems" },
   { label: "02 — Autonomous AI Systems", href: "/#systems" },
-  { label: "03 — Crypto & Financial Systems", href: "/#systems" },
-  { label: "04 — Revenue Infrastructure", href: "/#systems" },
+  { label: "03 — Settlement & Treasury Rails", href: "/#systems" },
+  { label: "04 — Algorithmic Revenue Infrastructure", href: "/#systems" },
 ];
 
 const footerCompany = [
