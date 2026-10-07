@@ -1,0 +1,13 @@
+User-Agent: *
+Allow: /
+
+User-Agent: GPTBot
+User-Agent: ChatGPT-User
+User-Agent: ClaudeBot
+User-Agent: anthropic-ai
+User-Agent: PerplexityBot
+User-Agent: Google-Extended
+User-Agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://huengines.com/sitemap.xml
