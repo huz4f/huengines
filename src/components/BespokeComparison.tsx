@@ -1,7 +1,3 @@
-"use client";
-
-import { useReveal } from "@/hooks/useReveal";
-
 interface ComparisonRow {
   dimension: string;
   offTheShelf: string;
@@ -49,11 +45,8 @@ const comparisons: ComparisonRow[] = [
 ];
 
 export default function BespokeComparison() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>();
-
   return (
     <section
-      ref={sectionRef}
       id="comparison"
       className="relative py-28 md:py-40 bg-hu-darker scroll-mt-10"
     >
@@ -61,39 +54,21 @@ export default function BespokeComparison() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         {/* Header */}
-        <div className="mb-16 max-w-[840px]">
-          <div
-            className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-          >
+        <div className="mb-16 max-w-[840px] reveal-on-scroll">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
               Architectural Decision
             </span>
           </div>
 
-          <h2
-            className={`text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-6 transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <h2 className="text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-6">
             WHEN OFF-THE-SHELF
             <br />
             <span className="text-hu-text-secondary">STOPS FITTING.</span>
           </h2>
 
-          <p
-            className={`text-hu-text-secondary text-base md:text-lg leading-relaxed transition-all duration-700 delay-300 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <p className="text-hu-text-secondary text-base md:text-lg leading-relaxed">
             Sometimes buying software is the wrong engineering decision. When your operations
             require bespoke workflows, high-throughput data processing, or custom automation,
             forcing standard SaaS into your business creates friction, margin decay, and compounding fragility.
@@ -101,11 +76,7 @@ export default function BespokeComparison() {
         </div>
 
         {/* Side-by-side comparison table */}
-        <div
-          className={`border border-hu-border bg-hu-card/25 overflow-hidden transition-all duration-1000 delay-400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
+        <div className="border border-hu-border bg-hu-card/25 overflow-hidden reveal-on-scroll">
           {/* Table Header */}
           <div className="grid grid-cols-12 bg-hu-black/80 border-b border-hu-border px-6 md:px-8 py-5 text-xs font-mono tracking-wider uppercase">
             <div className="col-span-12 md:col-span-3 text-hu-text-muted">
@@ -169,11 +140,7 @@ export default function BespokeComparison() {
         </div>
 
         {/* Footnote callout */}
-        <div
-          className={`mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 border border-hu-border bg-hu-black/40 text-xs text-hu-text-muted font-mono transition-all duration-700 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
+        <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 border border-hu-border bg-hu-black/40 text-xs text-hu-text-muted font-mono reveal-on-scroll">
           <span>
             Bespoke systems create defensibility. Standard SaaS tools can be copied by any competitor tomorrow.
           </span>

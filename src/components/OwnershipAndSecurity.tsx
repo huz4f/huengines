@@ -1,7 +1,3 @@
-"use client";
-
-import { useReveal } from "@/hooks/useReveal";
-
 const ownershipPillars = [
   {
     title: "IP ownership",
@@ -87,11 +83,8 @@ const securityPractices = [
 ];
 
 export default function OwnershipAndSecurity() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>();
-
   return (
     <section
-      ref={sectionRef}
       id="ownership-and-security"
       className="relative py-32 md:py-44 bg-hu-darker scroll-mt-10"
     >
@@ -100,39 +93,21 @@ export default function OwnershipAndSecurity() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         {/* ── PART 1: OWNERSHIP / IP (Section 13) ── */}
         <div className="mb-28">
-          <div className="max-w-[840px] mb-16">
-            <div
-              className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-            >
+          <div className="max-w-[840px] mb-16 reveal-on-scroll">
+            <div className="flex items-center gap-3 mb-8">
               <div className="w-8 h-[1px] bg-hu-accent" />
               <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
                 Sovereignty &amp; IP
               </span>
             </div>
 
-            <h2
-              className={`text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-6 transition-all duration-700 delay-200 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <h2 className="text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-6">
               YOUR SYSTEM.
               <br />
               <span className="text-hu-text-secondary">YOUR INFRASTRUCTURE.</span>
             </h2>
 
-            <p
-              className={`text-hu-text-secondary text-base md:text-lg leading-relaxed transition-all duration-700 delay-300 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <p className="text-hu-text-secondary text-base md:text-lg leading-relaxed">
               We engineer proprietary systems around your business. Where the engagement calls for it,
               architecture, source code, infrastructure and intellectual property can be structured for
               client ownership.
@@ -144,12 +119,7 @@ export default function OwnershipAndSecurity() {
             {ownershipPillars.map((pillar, i) => (
               <div
                 key={pillar.title}
-                className={`border border-hu-border bg-hu-card/25 p-6 hover:border-hu-accent/30 transition-all duration-500 flex flex-col justify-between ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${250 + i * 80}ms` }}
+                className="border border-hu-border bg-hu-card/25 p-6 hover:border-hu-accent/30 transition-all duration-500 flex flex-col justify-between reveal-on-scroll"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -174,39 +144,21 @@ export default function OwnershipAndSecurity() {
 
         {/* ── PART 2: SECURITY IS ARCHITECTURE (Section 14) ── */}
         <div id="security" className="scroll-mt-10 pt-16 border-t border-hu-border">
-          <div className="max-w-[840px] mb-16">
-            <div
-              className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-            >
+          <div className="max-w-[840px] mb-16 reveal-on-scroll">
+            <div className="flex items-center gap-3 mb-8">
               <div className="w-8 h-[1px] bg-hu-accent" />
               <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
                 Defensive Architecture
               </span>
             </div>
 
-            <h2
-              className={`text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-6 transition-all duration-700 delay-200 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <h2 className="text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-6">
               SECURITY IS ARCHITECTURE,
               <br />
               <span className="text-hu-text-secondary">NOT A CHECKBOX.</span>
             </h2>
 
-            <p
-              className={`text-hu-text-secondary text-base md:text-lg leading-relaxed transition-all duration-700 delay-300 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <p className="text-hu-text-secondary text-base md:text-lg leading-relaxed">
               We do not make hollow claims of &ldquo;military-grade security.&rdquo; Instead, we build structural
               resilience into every layer of your systems stack—from strict access boundaries and secret lifecycle
               management to audited APIs and segregated production runtime environments.
@@ -215,23 +167,18 @@ export default function OwnershipAndSecurity() {
 
           {/* Security Practices Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-            {securityPractices.map((practice, idx) => (
+            {securityPractices.map((practice) => (
               <div
                 key={practice.name}
-                className={`border border-hu-border bg-hu-black/50 p-5 hover:border-hu-accent/40 transition-all duration-300 flex flex-col justify-between ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
-                }`}
-                style={{ transitionDelay: `${350 + idx * 60}ms` }}
+                className="border border-hu-border bg-hu-black/50 p-5 hover:border-hu-accent/40 transition-all duration-300 flex flex-col justify-between reveal-on-scroll"
               >
                 <div>
                   <span className="text-[10px] font-mono tracking-widest uppercase text-hu-accent block mb-2">
                     {practice.scope}
                   </span>
-                  <h4 className="text-hu-white text-xs font-mono tracking-wide uppercase mb-2 font-medium">
+                  <h3 className="text-hu-white text-xs font-mono tracking-wide uppercase mb-2 font-medium">
                     {practice.name}
-                  </h4>
+                  </h3>
                   <p className="text-hu-text-muted text-[11px] leading-relaxed">
                     {practice.detail}
                   </p>

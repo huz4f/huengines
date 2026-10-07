@@ -1,6 +1,5 @@
 "use client";
 
-import { useReveal } from "@/hooks/useReveal";
 import { useState } from "react";
 
 interface TechDomain {
@@ -84,7 +83,6 @@ const domains: TechDomain[] = [
 ];
 
 export default function TechnicalDepth() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>();
   const [activeTab, setActiveTab] = useState<string>("all");
 
   const displayedDomains =
@@ -94,7 +92,6 @@ export default function TechnicalDepth() {
 
   return (
     <section
-      ref={sectionRef}
       id="technical-depth"
       className="relative py-32 md:py-44 bg-hu-darker scroll-mt-10"
     >
@@ -102,50 +99,28 @@ export default function TechnicalDepth() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         {/* Header */}
-        <div className="mb-16 max-w-[840px]">
-          <div
-            className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-          >
+        <div className="mb-16 max-w-[840px] reveal-on-scroll">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
               Institutional Capability
             </span>
           </div>
 
-          <h2
-            className={`text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-hu-white mb-6 transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <h2 className="text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-hu-white mb-6">
             THE ARCHITECTURE OF
             <br />
             <span className="text-hu-text-secondary">ENTERPRISE DOMINANCE.</span>
           </h2>
 
-          <p
-            className={`text-hu-text-secondary text-base leading-relaxed transition-all duration-700 delay-300 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <p className="text-hu-text-secondary text-base leading-relaxed">
             True market leaders do not assemble their future from third-party commodities. We engineer every layer
             of your proprietary operational stack for speed, defensibility, and perpetual compounding leverage.
           </p>
         </div>
 
         {/* Domain Filter Pills */}
-        <div
-          className={`flex flex-wrap gap-2 mb-12 transition-all duration-700 delay-400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
+        <div className="flex flex-wrap gap-2 mb-12 reveal-on-scroll">
           <button
             onClick={() => setActiveTab("all")}
             className={`px-4 py-2 text-xs font-mono tracking-wider uppercase border transition-all duration-300 cursor-pointer ${
@@ -173,15 +148,10 @@ export default function TechnicalDepth() {
 
         {/* Grid of 5 domains */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedDomains.map((dom, i) => (
+          {displayedDomains.map((dom) => (
             <div
               key={dom.id}
-              className={`border border-hu-border bg-hu-card/25 p-8 flex flex-col justify-between hover:border-hu-accent/30 transition-all duration-500 group ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${250 + i * 100}ms` }}
+              className="border border-hu-border bg-hu-card/25 p-8 flex flex-col justify-between hover:border-hu-accent/30 transition-all duration-500 group reveal-on-scroll"
             >
               <div>
                 {/* Header */}

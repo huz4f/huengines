@@ -1,6 +1,5 @@
 "use client";
 
-import { useReveal } from "@/hooks/useReveal";
 import { useState } from "react";
 import { SITE_CONFIG } from "@/config/site";
 
@@ -58,7 +57,6 @@ const improvementOptions: SystemFocusOption[] = [
 ];
 
 export default function ContactForm() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -253,7 +251,6 @@ export default function ContactForm() {
 
   return (
     <section
-      ref={sectionRef}
       id="contact"
       className="relative py-28 md:py-40 bg-hu-darker scroll-mt-10"
     >
@@ -262,51 +259,27 @@ export default function ContactForm() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-[1fr_1.25fr] gap-16 lg:gap-24">
           {/* Left: Info */}
-          <div>
-            <div
-              className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-            >
+          <div className="reveal-on-scroll">
+            <div className="flex items-center gap-3 mb-8">
               <div className="w-8 h-[1px] bg-hu-accent" />
               <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
                 Initiate
               </span>
             </div>
 
-            <h2
-              className={`text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-8 transition-all duration-700 delay-200 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <h2 className="text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-8">
               START A
               <br />
               <span className="text-hu-text-secondary">SYSTEMS AUDIT.</span>
             </h2>
 
-            <p
-              className={`text-hu-text-secondary text-base leading-relaxed mb-8 max-w-[460px] transition-all duration-700 delay-300 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <p className="text-hu-text-secondary text-base leading-relaxed mb-8 max-w-[460px]">
               We engineer exclusively for organizations where operational leverage, balance sheet defensibility,
               and sovereign infrastructure compound valuation. Submit your brief to initiate an architectural diagnostic
               with our principal engineering team.
             </p>
 
-            <div
-              className={`space-y-4 text-hu-text-muted text-sm transition-all duration-700 delay-400 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <div className="space-y-4 text-hu-text-muted text-sm">
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-hu-accent flex-shrink-0" />
                 <span>Bespoke systems engineered for market leaders &amp; institutional operators</span>
@@ -322,13 +295,7 @@ export default function ContactForm() {
             </div>
 
             {/* Direct Contact info */}
-            <div
-              className={`mt-12 pt-8 border-t border-hu-border/60 transition-all duration-700 delay-500 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <div className="mt-12 pt-8 border-t border-hu-border/60">
               <span className="block text-hu-text-muted text-[10px] tracking-[0.2em] uppercase font-mono mb-2">
                 Direct Executive Channel
               </span>
@@ -337,7 +304,7 @@ export default function ContactForm() {
                 className="text-hu-white hover:text-hu-accent text-sm tracking-wide font-mono transition-colors duration-300 inline-flex items-center gap-2"
               >
                 inquiry@huengines.com
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                   <path
                     d="M3 1h8v8M11 1L1 11"
                     stroke="currentColor"
@@ -349,13 +316,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right: Form */}
-          <div
-            className={`transition-all duration-700 delay-400 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
+          <div className="reveal-on-scroll">
             {submitted ? (
               <div className="border border-hu-accent/40 bg-hu-card/40 backdrop-blur-md p-10 md:p-14 text-center animate-fade-in shadow-[0_0_40px_rgba(200,164,110,0.08)]">
                 <div className="w-16 h-16 mx-auto border border-hu-accent bg-hu-accent-dim flex items-center justify-center mb-6 shadow-[0_0_25px_rgba(200,164,110,0.25)]">

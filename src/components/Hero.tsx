@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 const flowSteps = [
   "Human Intent",
   "Intelligence",
@@ -11,13 +7,6 @@ const flowSteps = [
 ];
 
 export default function Hero() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <section
       id="hero"
@@ -40,13 +29,7 @@ export default function Hero() {
           {/* Left: Copy */}
           <div>
             {/* Label */}
-            <div
-              className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-                loaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-            >
+            <div className="flex items-center gap-3 mb-8">
               <div className="w-8 h-[1px] bg-hu-accent" />
               <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
                 Human Utility Engines • Enterprise Sovereignty
@@ -54,13 +37,7 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1
-              className={`text-[clamp(1.95rem,3.2vw,3.25rem)] font-medium leading-[1.14] tracking-[-0.025em] text-hu-white mb-6 max-w-[720px] transition-all duration-1000 delay-200 ${
-                loaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <h1 className="text-[clamp(1.95rem,3.2vw,3.25rem)] font-medium leading-[1.14] tracking-[-0.025em] text-hu-white mb-6 max-w-[720px]">
               PROPRIETARY SOFTWARE,
               <br />
               AUTONOMOUS AI SYSTEMS &amp;
@@ -69,24 +46,12 @@ export default function Hero() {
             </h1>
 
             {/* Subheadline */}
-            <p
-              className={`text-hu-text-secondary text-base md:text-lg leading-relaxed max-w-[600px] mb-9 transition-all duration-1000 delay-400 ${
-                loaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <p className="text-hu-text-secondary text-base md:text-lg leading-relaxed max-w-[600px] mb-9">
               We architect the proprietary operating engines behind high-growth market leaders—transforming operational entropy into autonomous execution, eliminating SaaS dependency, and forging permanent balance sheet assets that compound enterprise value.
             </p>
 
             {/* CTAs */}
-            <div
-              className={`flex flex-wrap gap-4 mb-14 transition-all duration-1000 delay-500 ${
-                loaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-            >
+            <div className="flex flex-wrap gap-4 mb-14">
               <a
                 href="#contact"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-hu-accent text-hu-black text-sm font-medium tracking-[0.1em] uppercase hover:bg-hu-white transition-colors duration-300"
@@ -98,6 +63,7 @@ export default function Hero() {
                   viewBox="0 0 14 14"
                   fill="none"
                   className="group-hover:translate-x-1 transition-transform duration-300"
+                  aria-hidden="true"
                 >
                   <path
                     d="M1 7h12M8 2l5 5-5 5"
@@ -115,13 +81,7 @@ export default function Hero() {
             </div>
 
             {/* Credibility */}
-            <div
-              className={`flex flex-wrap items-center gap-3 text-hu-text-muted text-xs tracking-[0.15em] uppercase transition-all duration-1000 delay-700 ${
-                loaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-            >
+            <div className="flex flex-wrap items-center gap-3 text-hu-text-muted text-xs tracking-[0.15em] uppercase">
               {[
                 "01 Sovereign Platforms",
                 "02 Autonomous Labor",
@@ -139,22 +99,10 @@ export default function Hero() {
           </div>
 
           {/* Right: System Flow Diagram */}
-          <div
-            className={`hidden lg:block transition-all duration-1000 delay-500 ${
-              loaded
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 translate-x-8"
-            }`}
-          >
+          <div className="hidden lg:block">
             <div className="relative w-[280px]">
               {flowSteps.map((step, i) => (
-                <div
-                  key={step}
-                  className="relative"
-                  style={{
-                    animationDelay: `${600 + i * 150}ms`,
-                  }}
-                >
+                <div key={step} className="relative">
                   {/* Connector line */}
                   {i > 0 && (
                     <div className="flex items-center justify-center h-10">

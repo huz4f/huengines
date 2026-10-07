@@ -1,7 +1,6 @@
 "use client";
 
-import { useReveal } from "@/hooks/useReveal";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 interface SystemCardProps {
   number: string;
@@ -10,8 +9,6 @@ interface SystemCardProps {
   disclaimer?: string;
   capabilities: string[];
   cta: string;
-  delay: number;
-  isVisible: boolean;
 }
 
 function SystemCard({
@@ -21,47 +18,30 @@ function SystemCard({
   disclaimer,
   capabilities,
   cta,
-  delay,
-  isVisible,
 }: SystemCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = cardRef.current;
+    if (!el) return;
+    el.style.setProperty("--mouse-x", `${e.nativeEvent.offsetX}px`);
+    el.style.setProperty("--mouse-y", `${e.nativeEvent.offsetY}px`);
   };
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`relative group border border-hu-border bg-hu-card/30 p-8 md:p-10 card-hover flex flex-col justify-between transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className="relative group border border-hu-border bg-hu-card/30 p-8 md:p-10 card-hover flex flex-col justify-between reveal-on-scroll"
     >
-      {/* Mouse follow glow */}
-      {isHovered && (
-        <div
-          className="absolute pointer-events-none rounded-full transition-opacity duration-300"
-          style={{
-            left: mousePos.x - 100,
-            top: mousePos.y - 100,
-            width: 200,
-            height: 200,
-            background:
-              "radial-gradient(circle, rgba(200,164,110,0.06) 0%, transparent 70%)",
-          }}
-        />
-      )}
+      {/* Mouse follow glow (pure CSS, zero re-render overhead) */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background:
+            "radial-gradient(240px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(200,164,110,0.06), transparent 70%)",
+        }}
+      />
 
       <div>
         {/* Top header row */}
@@ -91,7 +71,7 @@ function SystemCard({
           {capabilities.map((cap) => (
             <span
               key={cap}
-              className="px-3 py-1.5 text-[11px] tracking-[0.06em] lowercase text-hu-text-muted border border-hu-border bg-hu-black/50 group-hover:border-hu-border-light group-hover:text-hu-text-secondary transition-colors duration-300"
+              className="text-[11px] font-mono text-hu-text-muted bg-hu-black/50 border border-hu-border px-3 py-1.5"
             >
               {cap}
             </span>
@@ -100,84 +80,73 @@ function SystemCard({
       </div>
 
       {/* CTA */}
-      <a
-        href="#contact"
-        className="inline-flex items-center gap-2 text-hu-accent text-sm tracking-[0.05em] group-hover:gap-3 transition-all duration-300 pt-4 border-t border-hu-border/40"
-      >
-        {cta}
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path
-            d="M1 7h12M8 2l5 5-5 5"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-        </svg>
-      </a>
+      <div className="pt-6 border-t border-hu-border flex items-center justify-between">
+        <a
+          href="#contact"
+          className="text-hu-accent text-xs font-mono tracking-wider uppercase group-hover:text-hu-white transition-colors duration-300 inline-flex items-center gap-2"
+        >
+          {cta}
+        </a>
+        <div className="w-1.5 h-1.5 bg-hu-accent/40 group-hover:bg-hu-accent transition-colors duration-300" />
+      </div>
     </div>
   );
 }
 
 const systems = [
   {
-    number: "01 — PROPRIETARY OPERATING SYSTEMS",
+    number: "01",
     title: "PROPRIETARY OPERATING SYSTEMS",
     description:
-      "Bespoke enterprise operating platforms engineered to eliminate SaaS subscription debt, unify fragmented departments, and deliver absolute operational command.",
+      "Bespoke enterprise operating platforms that centralize core workflows, eliminate SaaS licensing drag, modernize legacy software, and convert manual operational overhead into permanent balance sheet enterprise value.",
     capabilities: [
-      "unified command portals",
-      "EBITDA optimization",
-      "zero-vendor lock-in",
-      "custom ERP modernization",
-      "cross-system synchronization",
-      "permanent balance sheet asset",
-      "operational defensibility",
-      "workflow acceleration",
+      "bespoke enterprise ERP / OS",
+      "legacy system modernization",
+      "sub-second execution velocity",
+      "complete source code IP transfer",
+      "unbounded operational defensibility",
+      "zero recurring SaaS tax",
     ],
-    cta: "Initiate Systems Audit →",
+    cta: "Explore Operating Systems →",
   },
   {
-    number: "02 — AUTONOMOUS AI SYSTEMS",
+    number: "02",
     title: "AUTONOMOUS AI SYSTEMS",
     description:
-      "Deterministic cognitive engines and autonomous digital labor embedded into core commercial workflows—multiplying organizational capacity 10x without headcount bloat.",
+      "Deterministic autonomous digital labor and intelligent cognitive engines that process high-volume operational workflows, document intake, and transactional decision trees without human operational friction.",
     capabilities: [
-      "autonomous digital workforce",
-      "zero-latency intake & triage",
-      "intelligent document synthesis",
-      "algorithmic decision trees",
-      "high-speed underwriting",
-      "multi-agent orchestration",
-      "private air-gapped models",
-      "24/7 autonomous operations",
+      "autonomous digital labor",
+      "deterministic decision engines",
+      "zero-latency document intake",
+      "private air-gapped LLM orchestration",
+      "self-optimizing system loops",
+      "predictive anomaly resolution",
     ],
     cta: "Explore AI Systems →",
   },
   {
-    number: "03 — PROGRAMMABLE TREASURY & SETTLEMENT RAILS",
-    title: "PROGRAMMABLE TREASURY & SETTLEMENT RAILS",
+    number: "03",
+    title: "SETTLEMENT & TREASURY RAILS",
     description:
-      "Institutional software infrastructure for sub-second settlement finality, automated multi-jurisdiction capital routing, and financial sovereignty.",
-    disclaimer: "Software Infrastructure Only",
+      "Programmable non-custodial financial software rails engineered for instant settlement finality, automated treasury routing, smart contract escrow, and zero-counterparty cross-border commercial transactions.",
+    disclaimer: "Pure Technology Infrastructure • Non-Custodial",
     capabilities: [
-      "sub-second settlement rails",
-      "programmable liquidity routing",
-      "stablecoin velocity",
-      "non-custodial escrow",
-      "automated cross-border trade",
-      "zero intermediary wire delay",
-      "cryptographic audit trails",
-      "frictionless capital flow",
+      "sub-second liquidity rails",
+      "non-custodial smart contracts",
+      "programmable treasury routing",
+      "automated commercial escrow",
+      "zero counterparty risk",
+      "cryptographic balance sheet audits",
     ],
     cta: "Explore Financial Rails →",
   },
   {
-    number: "04 — ALGORITHMIC REVENUE INFRASTRUCTURE",
+    number: "04",
     title: "ALGORITHMIC REVENUE INFRASTRUCTURE",
     description:
-      "High-velocity acquisition engines connecting instant intent capture, automated qualification, dynamic booking, and predictable top-line revenue.",
+      "Autonomous pipeline velocity engines that capture, enrich, qualify, and route enterprise client relationships into booked commercial revenue with zero manual sales representative drag.",
     capabilities: [
-      "instant pipeline conversion",
-      "algorithmic lead qualification",
+      "algorithmic pipeline engines",
       "predictive data enrichment",
       "dynamic calendar routing",
       "closed-loop revenue telemetry",
@@ -190,11 +159,8 @@ const systems = [
 ];
 
 export default function WhatWeBuild() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>();
-
   return (
     <section
-      ref={sectionRef}
       id="systems"
       className="relative py-32 md:py-44 bg-hu-darker scroll-mt-10"
     >
@@ -203,27 +169,15 @@ export default function WhatWeBuild() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         {/* Section header */}
-        <div className="mb-20">
-          <div
-            className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-          >
+        <div className="mb-20 reveal-on-scroll">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
               Core Disciplines
             </span>
           </div>
 
-          <h2
-            className={`text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-hu-white transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <h2 className="text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-hu-white">
             CORE DISCIPLINES.
             <br />
             <span className="text-hu-text-secondary">PURPOSE-BUILT INFRASTRUCTURE.</span>
@@ -232,12 +186,10 @@ export default function WhatWeBuild() {
 
         {/* Cards grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {systems.map((system, i) => (
+          {systems.map((system) => (
             <SystemCard
               key={system.number}
               {...system}
-              delay={300 + i * 150}
-              isVisible={isVisible}
             />
           ))}
         </div>

@@ -1,7 +1,3 @@
-"use client";
-
-import { useReveal } from "@/hooks/useReveal";
-
 interface Stage {
   number: string;
   title: string;
@@ -48,11 +44,8 @@ const stages: Stage[] = [
 ];
 
 export default function HowWeWork() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>();
-
   return (
     <section
-      ref={sectionRef}
       id="method"
       className="relative py-32 md:py-44 bg-hu-black scroll-mt-10"
     >
@@ -60,39 +53,21 @@ export default function HowWeWork() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         {/* Header */}
-        <div className="mb-20 max-w-[840px]">
-          <div
-            className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-          >
+        <div className="mb-20 max-w-[840px] reveal-on-scroll">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
               Engineering Method
             </span>
           </div>
 
-          <h2
-            className={`text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-hu-white mb-6 transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <h2 className="text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-hu-white mb-6">
             FROM BUSINESS COMPLEXITY
             <br />
             <span className="text-hu-text-secondary">TO SYSTEM.</span>
           </h2>
 
-          <p
-            className={`text-hu-text-secondary text-base leading-relaxed transition-all duration-700 delay-300 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <p className="text-hu-text-secondary text-base leading-relaxed">
             A disciplined engineering lifecycle engineered for high-stakes operational environments.
             We eliminate technical ambiguity before writing code and ensure production reliability at scale.
           </p>
@@ -100,15 +75,10 @@ export default function HowWeWork() {
 
         {/* 5-Stage Engineering Lifecycle Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          {stages.map((stage, i) => (
+          {stages.map((stage) => (
             <div
               key={stage.number}
-              className={`group relative border border-hu-border bg-hu-card/25 p-7 hover:border-hu-accent/40 transition-all duration-500 flex flex-col justify-between ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${300 + i * 120}ms` }}
+              className="group relative border border-hu-border bg-hu-card/25 p-7 hover:border-hu-accent/40 transition-all duration-500 flex flex-col justify-between reveal-on-scroll"
             >
               <div>
                 {/* Stage number */}
@@ -146,11 +116,7 @@ export default function HowWeWork() {
         </div>
 
         {/* Bottom summary bar */}
-        <div
-          className={`mt-12 p-6 border border-hu-border bg-hu-card/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all duration-700 delay-900 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
+        <div className="mt-12 p-6 border border-hu-border bg-hu-card/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 reveal-on-scroll">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-hu-accent" />
             <span className="text-hu-text-secondary text-xs font-mono tracking-wide">

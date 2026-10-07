@@ -1,7 +1,3 @@
-"use client";
-
-import { useReveal } from "@/hooks/useReveal";
-
 interface EngineeringRecord {
   recordNumber: string;
   system: string;
@@ -97,11 +93,8 @@ const engineeringRecords: EngineeringRecord[] = [
 ];
 
 export default function CaseStudies() {
-  const [sectionRef, isVisible] = useReveal<HTMLElement>();
-
   return (
     <section
-      ref={sectionRef}
       id="deployments"
       className="relative py-32 md:py-44 bg-hu-darker scroll-mt-10"
     >
@@ -109,39 +102,21 @@ export default function CaseStudies() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         {/* Header */}
-        <div className="mb-20 max-w-[840px]">
-          <div
-            className={`flex items-center gap-3 mb-8 transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-          >
+        <div className="mb-20 max-w-[840px] reveal-on-scroll">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-[1px] bg-hu-accent" />
             <span className="text-hu-accent text-xs tracking-[0.3em] uppercase font-medium">
               Engineering Records
             </span>
           </div>
 
-          <h2
-            className={`text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-6 transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <h2 className="text-[clamp(1.9rem,3.8vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-hu-white mb-6">
             SELECTED
             <br />
             <span className="text-hu-text-secondary">SYSTEMS.</span>
           </h2>
 
-          <p
-            className={`text-hu-text-secondary text-base md:text-lg leading-relaxed transition-all duration-700 delay-300 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
+          <p className="text-hu-text-secondary text-base md:text-lg leading-relaxed">
             We do not publish manufactured testimonials or vanity screenshots. Every system below
             represents an engineering record with verified architectural specifications and measurable operational outcomes.
           </p>
@@ -149,15 +124,10 @@ export default function CaseStudies() {
 
         {/* Engineering Records List */}
         <div className="space-y-10">
-          {engineeringRecords.map((record, i) => (
+          {engineeringRecords.map((record) => (
             <div
               key={record.recordNumber}
-              className={`border border-hu-border bg-hu-card/25 p-8 md:p-12 hover:border-hu-accent/40 transition-all duration-700 relative ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${300 + i * 150}ms` }}
+              className="border border-hu-border bg-hu-card/25 p-8 md:p-12 hover:border-hu-accent/40 transition-all duration-700 relative reveal-on-scroll"
             >
               {/* Record Header Strip */}
               <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-hu-border/60">

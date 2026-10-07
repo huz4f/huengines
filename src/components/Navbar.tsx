@@ -45,7 +45,7 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between h-[72px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center group focus:outline-none" aria-label="HU Engines Home">
+          <Link href="/" prefetch={false} className="flex items-center group focus:outline-none" aria-label="HU Engines Home">
             <HuLogo variant="badge" size="md" />
           </Link>
 
@@ -63,8 +63,8 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <Link
-            href="/#contact"
+          <a
+            href="#contact"
             className="hidden md:flex items-center gap-2 text-[12px] tracking-[0.08em] uppercase text-hu-accent hover:text-hu-white transition-colors duration-300 font-medium"
           >
             Initiate Systems Audit
@@ -73,6 +73,7 @@ export default function Navbar() {
               height="12"
               viewBox="0 0 12 12"
               fill="none"
+              aria-hidden="true"
               className="mt-[1px]"
             >
               <path
@@ -81,7 +82,7 @@ export default function Navbar() {
                 strokeWidth="1.5"
               />
             </svg>
-          </Link>
+          </a>
 
           {/* Mobile Toggle */}
           <button
@@ -131,8 +132,8 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
-        <Link
-          href="/#contact"
+        <a
+          href="#contact"
           onClick={() => setMobileOpen(false)}
           className="mt-8 px-8 py-3 border border-hu-accent text-hu-accent text-sm tracking-[0.15em] uppercase hover:bg-hu-accent hover:text-hu-black transition-all duration-300"
           style={{
@@ -144,7 +145,7 @@ export default function Navbar() {
           }}
         >
           Initiate Systems Audit
-        </Link>
+        </a>
       </div>
     </>
   );
